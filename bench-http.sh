@@ -26,7 +26,7 @@ function gobench {
     fi
 
     if [[ "$1" == "GNET" ]]; then
-        GOMAXPROCS=8 $2 --port $4 --loops $5 &
+        GOMAXPROCS=8 $2 --port $4 --multicore $5 &
     else
         GOMAXPROCS=8 $2 --port $4 &
     fi
@@ -40,4 +40,4 @@ function gobench {
 
 gobench "GO-HTTP" bin/net-http-server net-http-server/main.go 8081
 gobench "FASTHTTP" bin/fasthttp-server fasthttp-server/main.go 8083
-gobench "GNET" bin/gnet-http-server gnet-http-server/main.go 8084 -1
+gobench "GNET" bin/gnet-http-server gnet-http-server/main.go 8084 true

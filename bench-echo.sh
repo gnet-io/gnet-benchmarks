@@ -27,8 +27,10 @@ function gobench {
 
     if [[ "$1" == "GO-NET" ]]; then
         GOMAXPROCS=8 $2 --port $4 &
-    else
+    elif [[ "$1" == "EVIO" ]]; then
         GOMAXPROCS=8 $2 --port $4 --loops $5 &
+    else
+        GOMAXPROCS=8 $2 --port $4 --multicore $5 &
     fi
 
     sleep 1
@@ -41,4 +43,4 @@ function gobench {
 
 gobench "GO-NET" bin/net-echo-server net-echo-server/main.go 5001
 gobench "EVIO" bin/evio-echo-server evio-echo-server/main.go 5002 -1
-gobench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 5003 4
+gobench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 5003 true
