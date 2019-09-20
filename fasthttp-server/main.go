@@ -18,13 +18,14 @@ func main() {
 	var port int
 	flag.IntVar(&port, "port", 8080, "server port")
 	flag.Parse()
-	go log.Printf("http server started on port %d", port)
+	log.Printf("http server started on port %d", port)
 	err := fasthttp.ListenAndServe(fmt.Sprintf(":%d", port),
 		func(c *fasthttp.RequestCtx) {
-			_, werr := c.WriteString("Hello World!\r\n")
-			if werr != nil {
-				log.Fatal(werr)
-			}
+			//_, werr := c.WriteString("Hello World!")
+			//if werr != nil {
+			//	log.Fatal(werr)
+			//}
+			c.SetBodyString("Hello World!")
 		})
 	if err != nil {
 		log.Fatal(err)
