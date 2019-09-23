@@ -6,7 +6,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/kavu/go_reuseport v1.4.0 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
-	github.com/panjf2000/gnet v0.1.2-0.20190922124057-ff1552341134
+	github.com/panjf2000/gnet v0.1.2-0.20190923031043-bceaf0be917f
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/tidwall/evio v1.0.2
 	github.com/valyala/fasthttp v1.5.0

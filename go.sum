@@ -31,6 +31,8 @@ github.com/panjf2000/gnet v0.1.2-0.20190922090419-f2cf65bdf087 h1:A44RYUWRc4rRV4
 github.com/panjf2000/gnet v0.1.2-0.20190922090419-f2cf65bdf087/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/panjf2000/gnet v0.1.2-0.20190922124057-ff1552341134 h1:wCCmFSQpZcxZi4YNd7XWL2+UpQ1/ZoZphNA9lC99nNc=
 github.com/panjf2000/gnet v0.1.2-0.20190922124057-ff1552341134/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
+github.com/panjf2000/gnet v0.1.2-0.20190923031043-bceaf0be917f h1:vSpN7hmS3qjPPJpaivVBo1EGp1Cgg/AT3P8pDne6Ox4=
+github.com/panjf2000/gnet v0.1.2-0.20190923031043-bceaf0be917f/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
