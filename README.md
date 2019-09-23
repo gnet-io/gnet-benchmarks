@@ -31,17 +31,21 @@ Like all benchmarks ever made in the history of whatever, YMMV. Please tweak and
 ### Test Environment
 
 ```powershell
-Go Version : go1.12.9 linux/amd64
+# Machine information
         OS : Ubuntu 18.04/x86_64
        CPU : 8 Virtual CPUs
     Memory : 16.0 GiB
+
+# Go version and configurations
+Go Version : go1.12.9 linux/amd64
+GOMAXPROCS=8
 ```
+### Contrast of the similar networking libraries:
 
-### Echo Server
-
+#### Echo Server
 ![](results/echo_linux.png)
 
-### HTTP Server
+#### HTTP Server
 
 ![](results/http_linux.png)
 
@@ -50,17 +54,21 @@ Go Version : go1.12.9 linux/amd64
 ### Test Environment
 
 ```powershell
-Go Version : go version go1.12.9 darwin/amd64
+# Machine information
         OS : macOS Mojave 10.14.6/x86_64
        CPU : 4 CPUs
     Memory : 8.0 GiB
+
+# Go version and configurations
+Go Version : go version go1.12.9 darwin/amd64
+GOMAXPROCS=4
 ```
 
-### Echo Server
+#### Echo Server
 
 ![](results/echo_mac.png)
 
-### HTTP Server
+#### HTTP Server
 
 ![](results/http_mac.png)
 
