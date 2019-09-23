@@ -1,51 +1,82 @@
 --- BENCH ECHO START ---
 
 --- GO-NET ---
-2019/09/18 10:11:41 echo server started on port 5001
+2019/09/23 14:33:02 echo server started on port 5000
+*** 100 connections, 10 seconds, 6 byte packets
+WARNING: Dumb terminal, expect unglorified output.
+Destination: [127.0.0.1]:5000
+Interface lo address [127.0.0.1]:0
+Using interface lo to connect to [127.0.0.1]:5000
+Ramped up to 100 connections.
+Total data sent:     33006.5 MiB (34609828050 bytes)
+Total data received: 32805.5 MiB (34399051746 bytes)
+Bandwidth per channel: 540.809⇅ Mbps (67601.1 kBps)
+Aggregate bandwidth: 27497.000↓, 27665.484↑ Mbps
+Packet rate estimate: 2411153.8↓, 2376312.8↑ (11↓, 30↑ TCP MSS/op)
+Test duration: 10.0081 s.
+--- DONE ---
+
+--- EVIO ---
+2019/09/23 14:32:49 echo server started on port 5001 (loops: 8)
 *** 100 connections, 10 seconds, 6 byte packets
 WARNING: Dumb terminal, expect unglorified output.
 Destination: [127.0.0.1]:5001
 Interface lo address [127.0.0.1]:0
 Using interface lo to connect to [127.0.0.1]:5001
 Ramped up to 100 connections.
-Total data sent:     13345.0 MiB (13993254360 bytes)
-Total data received: 13677.6 MiB (14342043223 bytes)
-Bandwidth per channel: 226.559⇅ Mbps (28319.9 kBps)
-Aggregate bandwidth: 11467.402↓, 11188.522↑ Mbps
-Packet rate estimate: 1053136.8↓, 971207.7↑ (12↓, 22↑ TCP MSS/op)
-Test duration: 10.0054 s.
+Total data sent:     28249.0 MiB (29621223424 bytes)
+Total data received: 28194.0 MiB (29563508773 bytes)
+Bandwidth per channel: 473.307⇅ Mbps (59163.4 kBps)
+Aggregate bandwidth: 23642.292↓, 23688.447↑ Mbps
+Packet rate estimate: 2064969.4↓, 2033195.7↑ (11↓, 45↑ TCP MSS/op)
+Test duration: 10.0036 s.
 --- DONE ---
 
---- EVIO ---
-2019/09/18 10:11:54 echo server started on port 5002 (loops: 8)
+--- EVIOP ---
+2019/09/23 14:32:37 echo server started on port 5002 (loops: 8)
 *** 100 connections, 10 seconds, 6 byte packets
 WARNING: Dumb terminal, expect unglorified output.
 Destination: [127.0.0.1]:5002
 Interface lo address [127.0.0.1]:0
 Using interface lo to connect to [127.0.0.1]:5002
 Ramped up to 100 connections.
-Total data sent:     15914.2 MiB (16687286933 bytes)
-Total data received: 16341.0 MiB (17134768703 bytes)
-Bandwidth per channel: 270.527⇅ Mbps (33815.8 kBps)
-Aggregate bandwidth: 13705.293↓, 13347.373↑ Mbps
-Packet rate estimate: 1255966.1↓, 1167756.5↑ (12↓, 27↑ TCP MSS/op)
-Test duration: 10.0018 s.
+Total data sent:     43679.8 MiB (45801568500 bytes)
+Total data received: 43961.0 MiB (46096432232 bytes)
+Bandwidth per channel: 734.711⇅ Mbps (91838.9 kBps)
+Aggregate bandwidth: 36853.413↓, 36617.674↑ Mbps
+Packet rate estimate: 3437681.0↓, 3228197.1↑ (12↓, 28↑ TCP MSS/op)
+Test duration: 10.0064 s.
 --- DONE ---
 
---- GNET ---
-2019/09/18 10:12:06 echo server started on port 5003 (loops: 8)
+--- GEV ---
 *** 100 connections, 10 seconds, 6 byte packets
 WARNING: Dumb terminal, expect unglorified output.
 Destination: [127.0.0.1]:5003
 Interface lo address [127.0.0.1]:0
 Using interface lo to connect to [127.0.0.1]:5003
 Ramped up to 100 connections.
-Total data sent:     18004.4 MiB (18878969361 bytes)
-Total data received: 17979.0 MiB (18852382663 bytes)
-Bandwidth per channel: 301.793⇅ Mbps (37724.2 kBps)
-Aggregate bandwidth: 15079.037↓, 15100.302↑ Mbps
-Packet rate estimate: 1380639.7↓, 1309715.8↑ (12↓, 23↑ TCP MSS/op)
-Test duration: 10.0019 s.
+Total data sent:     51356.8 MiB (53851506291 bytes)
+Total data received: 41345.5 MiB (43353938602 bytes)
+Bandwidth per channel: 769.389⇅ Mbps (96173.6 kBps)
+Aggregate bandwidth: 34658.123↓, 43050.118↑ Mbps
+Packet rate estimate: 3058233.6↓, 3687665.1↑ (11↓, 40↑ TCP MSS/op)
+Test duration: 10.0072 s.
+--- DONE ---
+
+--- GNET ---
+2019/09/23 14:33:26 echo server started on port 5004 (loops: 8)
+*** 100 connections, 10 seconds, 6 byte packets
+WARNING: Dumb terminal, expect unglorified output.
+Destination: [127.0.0.1]:5004
+Interface lo address [127.0.0.1]:0
+Using interface lo to connect to [127.0.0.1]:5004
+Ramped up to 100 connections.
+Total data sent:     47117.9 MiB (49406694647 bytes)
+Total data received: 47249.2 MiB (49544386899 bytes)
+Bandwidth per channel: 790.867⇅ Mbps (98858.3 kBps)
+Aggregate bandwidth: 39598.355↓, 39488.304↑ Mbps
+Packet rate estimate: 3676538.7↓, 3384317.7↑ (12↓, 42↑ TCP MSS/op)
+Test duration: 10.0094 s.
 --- DONE ---
 
 --- BENCH ECHO DONE ---
