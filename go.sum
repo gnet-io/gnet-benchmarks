@@ -42,6 +42,8 @@ github.com/libp2p/go-reuseport v0.0.1/go.mod h1:jn6RmB1ufnQwl0Q1f+YxAj8isJgDCQza
 github.com/panjf2000/gnet v0.0.1-rc.4/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20190924021135-fe0c167141d4 h1:v8RYw19HX0bkH5fFjHHvo0+M8Jyq0EKVFWZ5moVHB30=
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20190924021135-fe0c167141d4/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20190926165038-a3aef65e9e5c h1:H6DDHjGJGATFmhx615pLcSzJrhjhm+PyNX4pc9+/LTQ=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20190926165038-a3aef65e9e5c/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
 github.com/panjf2000/gnet v0.1.2-0.20190923142336-7e1c5cd793cc h1:VhaPXdBV3KyjcGKAvG/rwBt2DJ9uLDE4rZw+9EgZe8U=
 github.com/panjf2000/gnet v0.1.2-0.20190923142336-7e1c5cd793cc/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
