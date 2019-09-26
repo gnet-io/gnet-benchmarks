@@ -26,17 +26,17 @@ function gobench {
     fi
 
     if [[ "$1" == "GO-NET" ]]; then
-        GOMAXPROCS=4 $2 --port $4 &
+        GOMAXPROCS=8 $2 --port $4 &
     elif [[ "$1" == "GNET" ]]; then
-        GOMAXPROCS=4 $2 --port $4 --multicore $5 &
+        GOMAXPROCS=8 $2 --port $4 --multicore $5 &
     else
-        GOMAXPROCS=4 $2 --port $4 --loops $5 &
+        GOMAXPROCS=8 $2 --port $4 --loops $5 &
     fi
 
     sleep 1
     echo "*** 100 connections, 10 seconds, 6 byte packets"
     nl=$'\r\n'
-    tcpkali --workers 4 -c 100 -T 10s -m "PING{$nl}" 127.0.0.1:$4
+    tcpkali --workers 8 -c 100 -T 10s -m "PING{$nl}" 127.0.0.1:$4
     echo "--- DONE ---"
     echo ""
 }
