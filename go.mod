@@ -8,7 +8,8 @@ require (
 	github.com/Allenxuxu/ringbuffer v0.0.1
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
-	github.com/panjf2000/gnet v0.0.1-rc.4.0.20190927075340-c862fed3424e
+	github.com/panjf2000/ants v1.3.0
+	github.com/panjf2000/gnet v0.0.1-rc.4.0.20190930130908-bbafc2e5abaa
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/tidwall/evio v1.0.2
 	github.com/valyala/fasthttp v1.5.0
