@@ -46,6 +46,10 @@ github.com/panjf2000/ants/v2 v2.1.1-0.20190930064727-2b9f35b18f3e/go.mod h1:1GFm
 github.com/panjf2000/gnet v0.0.1-rc.4/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20190930130908-bbafc2e5abaa h1:kVH6V3IsCV3VCv8sKP4XSTvMLOQbuz6FHsDH9qGHgCY=
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20190930130908-bbafc2e5abaa/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20191004101502-50f32e2b7800 h1:uuOKYiWEqRdpQUgDXe/r8C0f6LrXQvlsDXVJoiX0/n0=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20191004101502-50f32e2b7800/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20191004135040-bb9e8de4f59f h1:+OjwoXhtum+Cn4XSb7MwxIrs0t/iI9tS5exNCV6Z1t4=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20191004135040-bb9e8de4f59f/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
