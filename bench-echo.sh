@@ -17,6 +17,8 @@ trap cleanup EXIT
 mkdir -p bin
 $(pkill -9 net-echo-server || printf "")
 $(pkill -9 evio-echo-server || printf "")
+$(pkill -9 eviop-echo-server || printf "")
+$(pkill -9 gev-echo-server || printf "")
 $(pkill -9 gnet-echo-server || printf "")
 
 function gobench {
