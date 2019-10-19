@@ -9,7 +9,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/panjf2000/ants/v2 v2.2.1
-	github.com/panjf2000/gnet v1.0.0-beta.4.0.20191019164819-f914025d0c71 // indirect
+	github.com/panjf2000/gnet v1.0.0-beta.5
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/tidwall/evio v1.0.2
 	github.com/valyala/fasthttp v1.5.0
