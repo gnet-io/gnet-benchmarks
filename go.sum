@@ -56,6 +56,8 @@ github.com/panjf2000/gnet v0.0.1-rc.4.0.20191005153423-ff9409765d64 h1:PeE43BJnm
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20191005153423-ff9409765d64/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20191005171731-eacf5e88de19 h1:pa2uSuxf8GHQ+AEmkMGM8qjVp4BDN22j88idiIuBGBY=
 github.com/panjf2000/gnet v0.0.1-rc.4.0.20191005171731-eacf5e88de19/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20191006033111-688b47d4e183 h1:ZUovt+VbVT/Z1CSJeA6Z1DF/X0tSHlOl0vTmybKtEKQ=
+github.com/panjf2000/gnet v0.0.1-rc.4.0.20191006033111-688b47d4e183/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
 github.com/panjf2000/gnet v1.0.0-rc.1 h1:wRIi6Q/u4gRvt/yIMQWlUGloPEPxpmSbQ6PzebVCw5g=
 github.com/panjf2000/gnet v1.0.0-rc.1/go.mod h1:V7INYQIpTBp9hk1KVq84LrBHMZ3o4tq1aFp+JY52hw0=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
