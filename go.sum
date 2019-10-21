@@ -49,6 +49,8 @@ github.com/panjf2000/gnet v1.0.0-beta.5 h1:kJLPHeMeGiMi/CoWhHPZ6XEcdVi+5iJmLJViu
 github.com/panjf2000/gnet v1.0.0-beta.5/go.mod h1:tb0HHGmo4/tAY5cw6Bw0r1X2A3fdNa31FKSikMdnQDk=
 github.com/panjf2000/gnet v1.0.0-beta.6 h1:5f9R0D4B+Y7x1qOoeMZkmVlvq2YGnMOQ/0J9RdWwXRc=
 github.com/panjf2000/gnet v1.0.0-beta.6/go.mod h1:tb0HHGmo4/tAY5cw6Bw0r1X2A3fdNa31FKSikMdnQDk=
+github.com/panjf2000/gnet v1.0.0-beta.7 h1:Da38z3862P4Fwi+a1IdWtU6/gEc2/ie25w041aK3R9Q=
+github.com/panjf2000/gnet v1.0.0-beta.7/go.mod h1:tb0HHGmo4/tAY5cw6Bw0r1X2A3fdNa31FKSikMdnQDk=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
