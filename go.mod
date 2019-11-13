@@ -4,9 +4,8 @@ go 1.12
 
 require (
 	github.com/Allenxuxu/eviop v0.0.0-20190919234625-d421704e9f73
-	github.com/Allenxuxu/gev v0.1.1
-	github.com/Allenxuxu/ringbuffer v0.0.3
-	github.com/Allenxuxu/toolkit v0.0.0-20190930031734-928c4d41e573 // indirect
+	github.com/Allenxuxu/gev v0.1.3
+	github.com/Allenxuxu/ringbuffer v0.0.4
 	github.com/RussellLuo/timingwheel v0.0.0-20191022104228-f534fd34a762 // indirect
 	github.com/ajstarks/svgo v0.0.0-20190826172357-de52242f3d65 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -15,7 +14,7 @@ require (
 	github.com/klauspost/compress v1.9.0 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/panjf2000/ants/v2 v2.2.2
-	github.com/panjf2000/gnet v1.0.0-beta.10
+	github.com/panjf2000/gnet v1.0.0-rc.3
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/tidwall/evio v1.0.3
 	github.com/valyala/fasthttp v1.5.0
