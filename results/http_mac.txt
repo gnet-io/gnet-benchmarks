@@ -2,66 +2,66 @@
 --- BENCH HTTP START ---
 
 --- GO-HTTP ---
-2019/09/14 22:59:08 http server started on port 8081
+2019/12/17 19:54:08 http server started on port 8081
 *** 100 connections, 10 seconds
 Bombarding http://127.0.0.1:8081 for 10s using 100 connection(s)
-[======================================================================================================================================================] 10s
+[========================================================================================================================================================] 10s
 Done!
 Statistics        Avg      Stdev        Max
-  Reqs/sec     26884.21    7531.03   38902.29
-  Latency        3.72ms     6.70ms   659.18ms
+  Reqs/sec     30099.14    5679.24   46015.52
+  Latency        3.31ms     7.62ms   393.08ms
   Latency Distribution
-     50%     3.13ms
-     75%     3.77ms
-     90%     4.79ms
-     95%     6.12ms
-     99%    15.57ms
+     50%     2.34ms
+     75%     2.92ms
+     90%     4.08ms
+     95%     6.17ms
+     99%    42.50ms
   HTTP codes:
-    1xx - 0, 2xx - 268800, 3xx - 0, 4xx - 0, 5xx - 0
+    1xx - 0, 2xx - 301234, 3xx - 0, 4xx - 0, 5xx - 0
     others - 0
-  Throughput:     4.95MB/s
+  Throughput:     5.54MB/s
 --- DONE ---
 
 --- FASTHTTP ---
-2019/09/14 22:59:20 http server started on port 8083
+2019/12/17 19:54:19 http server started on port 8083
 *** 100 connections, 10 seconds
 Bombarding http://127.0.0.1:8083 for 10s using 100 connection(s)
-[======================================================================================================================================================] 10s
+[========================================================================================================================================================] 10s
 Done!
 Statistics        Avg      Stdev        Max
-  Reqs/sec     50430.34    6314.48   60622.70
-  Latency        1.98ms     3.00ms   309.57ms
+  Reqs/sec     51088.79   10474.95  192678.23
+  Latency        1.92ms     3.95ms   254.21ms
   Latency Distribution
-     50%     1.68ms
-     75%     2.06ms
-     90%     2.63ms
-     95%     3.34ms
-     99%     8.55ms
+     50%     1.53ms
+     75%     1.92ms
+     90%     2.62ms
+     95%     3.44ms
+     99%     8.69ms
   HTTP codes:
-    1xx - 0, 2xx - 504746, 3xx - 0, 4xx - 0, 5xx - 0
+    1xx - 0, 2xx - 515681, 3xx - 0, 4xx - 0, 5xx - 0
     others - 0
-  Throughput:    10.15MB/s
+  Throughput:    10.28MB/s
 --- DONE ---
 
 --- GNET ---
-2019/09/14 22:59:31 http server started on port 8084 (loops: 4)
+2019/12/17 19:54:31 HTTP server is listening on [::]:8084 (multi-cores: true, loops: 4)
 *** 100 connections, 10 seconds
 Bombarding http://127.0.0.1:8084 for 10s using 100 connection(s)
-[======================================================================================================================================================] 10s
+[========================================================================================================================================================] 10s
 Done!
 Statistics        Avg      Stdev        Max
-  Reqs/sec     79973.25   15047.66  100098.56
-  Latency        1.28ms     1.49ms   208.82ms
+  Reqs/sec     86763.73    9163.57   96254.78
+  Latency        1.16ms     1.20ms    96.16ms
   Latency Distribution
      50%     1.09ms
-     75%     1.30ms
-     90%     1.79ms
-     95%     2.36ms
-     99%     4.90ms
+     75%     1.19ms
+     90%     1.38ms
+     95%     1.68ms
+     99%     3.73ms
   HTTP codes:
-    1xx - 0, 2xx - 779105, 3xx - 0, 4xx - 0, 5xx - 0
+    1xx - 0, 2xx - 857534, 3xx - 0, 4xx - 0, 5xx - 0
     others - 0
-  Throughput:    12.30MB/s
+  Throughput:    13.57MB/s
 --- DONE ---
 
 --- BENCH HTTP DONE ---
