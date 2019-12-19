@@ -8,13 +8,13 @@ require (
 	github.com/Allenxuxu/ringbuffer v0.0.5
 	github.com/RussellLuo/timingwheel v0.0.0-20191211035242-0e67dbf0ae97 // indirect
 	github.com/ajstarks/svgo v0.0.0-20191124160048-bd5c74aaa11c // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fogleman/gg v1.3.0 // indirect
 	github.com/jung-kurt/gofpdf v1.16.2 // indirect
 	github.com/klauspost/compress v1.9.4 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/panjf2000/ants/v2 v2.2.2
-	github.com/panjf2000/gnet v1.0.0-rc.3.0.20191219033336-62b6416067f4
-	github.com/stretchr/objx v0.2.0 // indirect
+	github.com/panjf2000/gnet v1.0.0-rc.4
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/tidwall/evio v1.0.3
 	github.com/valyala/fasthttp v1.7.0
