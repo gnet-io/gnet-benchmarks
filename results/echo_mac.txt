@@ -66,12 +66,12 @@ Destination: [127.0.0.1]:5000
 Interface lo0 address [127.0.0.1]:0
 Using interface lo0 to connect to [127.0.0.1]:5000
 Ramped up to 100 connections.
-Total data sent:     9879.2 MiB (10359118220 bytes)
-Total data received: 9872.4 MiB (10351911854 bytes)
-Bandwidth per channel: 165.686⇅ Mbps (20710.8 kBps)
-Aggregate bandwidth: 8281.435↓, 8287.200↑ Mbps
-Packet rate estimate: 757903.4↓, 721762.9↑ (11↓, 24↑ TCP MSS/op)
-Test duration: 10.0001 s.
+Total data sent:     10247.2 MiB (10744958912 bytes)
+Total data received: 10244.7 MiB (10742310717 bytes)
+Bandwidth per channel: 171.740⇅ Mbps (21467.5 kBps)
+Aggregate bandwidth: 8585.944↓, 8588.060↑ Mbps
+Packet rate estimate: 778191.3↓, 750545.0↑ (11↓, 24↑ TCP MSS/op)
+Test duration: 10.0092 s.
 --- DONE ---
 
 --- BENCH ECHO DONE ---
