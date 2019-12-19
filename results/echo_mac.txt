@@ -61,18 +61,17 @@ Test duration: 10.0003 s.
 --- DONE ---
 
 --- GNET ---
-2019/10/04 22:09:28 Server is running under multi-core: true, loops: 4
 *** 100 connections, 10 seconds, 6 byte packets
-Destination: [127.0.0.1]:5004
+Destination: [127.0.0.1]:5000
 Interface lo0 address [127.0.0.1]:0
-Using interface lo0 to connect to [127.0.0.1]:5004
+Using interface lo0 to connect to [127.0.0.1]:5000
 Ramped up to 100 connections.
-Total data sent:     9491.7 MiB (9952781988 bytes)
-Total data received: 9496.3 MiB (9957582636 bytes)
-Bandwidth per channel: 152.975⇅ Mbps (19121.9 kBps)
-Aggregate bandwidth: 7956.644↓, 7952.808↑ Mbps
-Packet rate estimate: 742099.7↓, 696375.4↑ (11↓, 21↑ TCP MSS/op)
-Test duration: 10.0118 s.
+Total data sent:     9879.2 MiB (10359118220 bytes)
+Total data received: 9872.4 MiB (10351911854 bytes)
+Bandwidth per channel: 165.686⇅ Mbps (20710.8 kBps)
+Aggregate bandwidth: 8281.435↓, 8287.200↑ Mbps
+Packet rate estimate: 757903.4↓, 721762.9↑ (11↓, 24↑ TCP MSS/op)
+Test duration: 10.0001 s.
 --- DONE ---
 
 --- BENCH ECHO DONE ---
