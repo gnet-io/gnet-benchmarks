@@ -10,13 +10,8 @@ type echoServer struct {
 	*gnet.EventServer
 }
 
-func (es *echoServer) React(c gnet.Conn) (out []byte, action gnet.Action) {
-	top, tail := c.ReadPair()
-	out = top
-	if tail != nil {
-		out = append(top, tail...)
-	}
-	c.ResetBuffer()
+func (es *echoServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
+	out = frame
 	return
 }
 

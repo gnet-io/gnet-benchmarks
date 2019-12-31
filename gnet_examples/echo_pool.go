@@ -4,18 +4,17 @@ import (
 	"log"
 	"time"
 
-	"github.com/panjf2000/ants/v2"
 	"github.com/panjf2000/gnet"
+	"github.com/panjf2000/gnet/pool/goroutine"
 )
 
 type echoServer struct {
 	*gnet.EventServer
-	pool *ants.Pool
+	pool *goroutine.Pool
 }
 
-func (es *echoServer) React(c gnet.Conn) (out []byte, action gnet.Action) {
-	data := c.ReadBytes()
-	c.ResetBuffer()
+func (es *echoServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
+	data := append([]byte{}, frame...)
 
 	// Use ants pool to unblock the event-loop.
 	_ = es.pool.Submit(func() {
@@ -23,15 +22,13 @@ func (es *echoServer) React(c gnet.Conn) (out []byte, action gnet.Action) {
 		c.AsyncWrite(data)
 	})
 
-	action = gnet.DataRead
 	return
 }
 
 func main() {
-	// Create a goroutine pool.
-	poolSize := 64 * 1024
-	pool, _ := ants.NewPool(poolSize, ants.WithNonblocking(true))
-	defer pool.Release()
-	echo := &echoServer{pool: pool}
+	p := goroutine.Default()
+	defer p.Release()
+
+	echo := &echoServer{pool: p}
 	log.Fatal(gnet.Serve(echo, "tcp://:9000", gnet.WithMulticore(true)))
 }
