@@ -58,9 +58,13 @@ github.com/panjf2000/ants/v2 v2.2.2/go.mod h1:1GFm8bV8nyCQvU5K4WvBCTG1/YBFOD2Vzj
 github.com/panjf2000/gnet v0.0.1-rc.4/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/panjf2000/gnet v1.0.0-rc.4 h1:kXOXCC60BkSd1OObcPGoPu+6EQbomL73RF+CHXS1DKI=
 github.com/panjf2000/gnet v1.0.0-rc.4/go.mod h1:OYcdgCx4Vhn5Tbrslc0TR3h0hwuCgSPyzyOCIxMRyFM=
+github.com/panjf2000/gnet v1.0.0-rc.5 h1:EcFAcBmKn5isLD0oL4lDAzawgST3OpCEDlFAnL6Atj0=
+github.com/panjf2000/gnet v1.0.0-rc.5/go.mod h1:lOfIuDS7Q5FFzuPiDsPvESywpPyYIi9/pSa9pbdYUls=
 github.com/phpdave11/gofpdi v1.0.7/go.mod h1:vBmVV0Do6hSBHC8uKUQ71JGW+ZGQq74llk/7bXwjDoI=
 github.com/pkg/errors v0.8.1 h1:iURUrRGxPUNPdy5/HRSm+Yj6okJ6UtLINN0Q9M4+h3I=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/remyoudompheng/bigfft v0.0.0-20170806203942-52369c62f446/go.mod h1:uYEyJGbgTkfkS4+E/PavXkNJcbFIpEtjt2B0KDQ5+9M=
@@ -120,6 +124,8 @@ golang.org/x/sys v0.0.0-20190412213103-97732733099d/go.mod h1:h1NjWce9XRLGQEsW7w
 golang.org/x/sys v0.0.0-20190830142957-1e83adbbebd0/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/sys v0.0.0-20191218084908-4a24b4065292 h1:Y8q0zsdcgAd+JU8VUA8p8Qv2YhuY9zevDG2ORt5qBUI=
 golang.org/x/sys v0.0.0-20191218084908-4a24b4065292/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20200117145432-59e60aa80a0c h1:gUYreENmqtjZb2brVfUas1sC6UivSY8XwKwPo8tloLs=
+golang.org/x/sys v0.0.0-20200117145432-59e60aa80a0c/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/tools v0.0.0-20180525024113-a5b4c53f6e8b/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
 golang.org/x/tools v0.0.0-20190206041539-40960b6deb8e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
@@ -144,6 +150,8 @@ gonum.org/v1/plot v0.0.0-20190615073203-9aa86143727f h1:5+IdMldM5iTBk6wFBDtdVSSC
 gonum.org/v1/plot v0.0.0-20190615073203-9aa86143727f/go.mod h1:Wt8AAjI+ypCyYX3nZBvf6cAIx93T+c/OS2HFAYskSZc=
 gonum.org/v1/plot v0.0.0-20191107103940-ca91d9d40d0a h1:XlrIH5NuGkoO6x8u0eB+ZvsnukQQZ4bzCShkwcYfmyc=
 gonum.org/v1/plot v0.0.0-20191107103940-ca91d9d40d0a/go.mod h1:2EC9bQmADoXz4qWOuiPhNNky9U7T8rgIULcW8j/muig=
+gonum.org/v1/plot v0.0.0-20200111075622-4abb28f724d5 h1:edjGU2UC8RjriRJNETPkc6w4Y44FqlvPQEal6JdckTw=
+gonum.org/v1/plot v0.0.0-20200111075622-4abb28f724d5/go.mod h1:+HbaZVpsa73UwN7kXGCECULRHovLRJjH+t5cFPgxErs=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 h1:YR8cESwS4TdDjEe65xsg0ogRM/Nc3DYOhEAlW+xobZo=
 gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=

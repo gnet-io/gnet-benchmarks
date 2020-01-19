@@ -26,7 +26,7 @@ function gobench {
     fi
 
     if [[ "$1" == "GNET" ]]; then
-        GOMAXPROCS=8 $2 --port $4 --multicore $5 &
+        GOMAXPROCS=8 $2 --port $4 --multicore=$5 &
     else
         GOMAXPROCS=8 $2 --port $4 &
     fi

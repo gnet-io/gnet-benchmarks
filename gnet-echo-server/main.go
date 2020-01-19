@@ -22,6 +22,10 @@ func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 		srv.Addr.String(), srv.Multicore, srv.NumLoops)
 	return
 }
+// func (es *echoServer) OnClosed(c gnet.Conn, err error) (action gnet.Action) {
+// 	fmt.Printf("Conn: %s is closed.\n", c.RemoteAddr().String())
+// 	return
+// }
 func (es *echoServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
 	// Echo synchronously.
 	out = frame
