@@ -4,8 +4,8 @@ go 1.12
 
 require (
 	github.com/Allenxuxu/eviop v0.0.0-20190919234625-d421704e9f73
-	github.com/Allenxuxu/gev v0.1.8
-	github.com/Allenxuxu/ringbuffer v0.0.5
+	github.com/Allenxuxu/gev v0.1.9
+	github.com/Allenxuxu/ringbuffer v0.0.6
 	github.com/RussellLuo/timingwheel v0.0.0-20191211035242-0e67dbf0ae97 // indirect
 	github.com/ajstarks/svgo v0.0.0-20191124160048-bd5c74aaa11c // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
@@ -16,11 +16,11 @@ require (
 	github.com/panjf2000/gnet v1.0.0-rc.5
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/stretchr/testify v1.4.0 // indirect
-	github.com/tidwall/evio v1.0.3
+	github.com/tidwall/evio v1.0.7
 	github.com/valyala/fasthttp v1.7.0
 	golang.org/x/exp v0.0.0-20191129062945-2f5052295587 // indirect
 	golang.org/x/image v0.0.0-20191214001246-9130b4cfad52 // indirect
-	golang.org/x/sys v0.0.0-20200117145432-59e60aa80a0c // indirect
+	golang.org/x/sys v0.0.0-20200202164722-d101bd2416d5 // indirect
 	gonum.org/v1/gonum v0.6.1 // indirect
 	gonum.org/v1/netlib v0.0.0-20191031114514-eccb95939662 // indirect
 	gonum.org/v1/plot v0.0.0-20200111075622-4abb28f724d5
