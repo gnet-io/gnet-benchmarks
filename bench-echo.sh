@@ -28,11 +28,11 @@ function gobench {
     fi
 
     if [[ "$1" == "GO-NET" ]]; then
-        GOMAXPROCS=8 $2 --port $4 &
+        $2 --port $4 &
     elif [[ "$1" == "GNET" ]]; then
-        GOMAXPROCS=8 $2 --port $4 --multicore=$5 &
+        $2 --port $4 --multicore=$5 &
     else
-        GOMAXPROCS=8 $2 --port $4 --loops $5 &
+        $2 --port $4 --loops $5 &
     fi
 
     sleep 1

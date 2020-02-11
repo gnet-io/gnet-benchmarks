@@ -59,9 +59,14 @@ github.com/libp2p/go-reuseport v0.0.1 h1:7PhkfH73VXfPJYKQ6JwS5I/eVcoyYi9IMNGc6FW
 github.com/libp2p/go-reuseport v0.0.1/go.mod h1:jn6RmB1ufnQwl0Q1f+YxAj8isJgDCQzaaxIFYDhcYEA=
 github.com/panjf2000/ants/v2 v2.2.2 h1:TWzusBjq/IflXhy+/S6u5wmMLCBdJnB9tPIx9Zmhvok=
 github.com/panjf2000/ants/v2 v2.2.2/go.mod h1:1GFm8bV8nyCQvU5K4WvBCTG1/YBFOD2VzjffD8fV55A=
+github.com/panjf2000/ants/v2 v2.3.0/go.mod h1:LtwNaBX6OeF5qRtQlaeGndalVwJlS2ueur7uwoAHbPA=
 github.com/panjf2000/gnet v0.0.1-rc.4/go.mod h1:N251s4H0wuPrB0ssD/D4ZQYOFJKZOwYxqIejzAodQqc=
 github.com/panjf2000/gnet v1.0.0-rc.4 h1:kXOXCC60BkSd1OObcPGoPu+6EQbomL73RF+CHXS1DKI=
 github.com/panjf2000/gnet v1.0.0-rc.4/go.mod h1:OYcdgCx4Vhn5Tbrslc0TR3h0hwuCgSPyzyOCIxMRyFM=
+github.com/panjf2000/gnet v1.0.0-rc.4.0.20200119055442-82e331bdff15 h1:M036IGGYWz9qN41r2sROOHyQ+sPbzdFA6GNARYGp9gU=
+github.com/panjf2000/gnet v1.0.0-rc.4.0.20200119055442-82e331bdff15/go.mod h1:lOfIuDS7Q5FFzuPiDsPvESywpPyYIi9/pSa9pbdYUls=
+github.com/panjf2000/gnet v1.0.0-rc.4.0.20200211080044-2c4555af1953 h1:ym1RyKYRj6ykEOSROW+Em+RKK/+zP0QIJVc19Wwlq7A=
+github.com/panjf2000/gnet v1.0.0-rc.4.0.20200211080044-2c4555af1953/go.mod h1:8NjJvhUHAXJLwK9Vvh0Coe0fyQSJ2FBY+y5QO0QgTzA=
 github.com/panjf2000/gnet v1.0.0-rc.5 h1:EcFAcBmKn5isLD0oL4lDAzawgST3OpCEDlFAnL6Atj0=
 github.com/panjf2000/gnet v1.0.0-rc.5/go.mod h1:lOfIuDS7Q5FFzuPiDsPvESywpPyYIi9/pSa9pbdYUls=
 github.com/panjf2000/gnet v1.0.0-rc.5.0.20200206172702-3dd780d75fbb h1:EL2buxVUqSfbrBzaMe5mcW128cvpbxIukdIofDJKOqc=
