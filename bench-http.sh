@@ -17,6 +17,7 @@ trap cleanup EXIT
 mkdir -p bin
 $(pkill -9 net-http-server || printf "")
 $(pkill -9 fasthttp-server || printf "")
+$(pkill -9 evio-http-server || printf "")
 $(pkill -9 gnet-http-server || printf "")
 
 function gobench {
@@ -26,9 +27,11 @@ function gobench {
     fi
 
     if [[ "$1" == "GNET" ]]; then
-        GOMAXPROCS=8 $2 --port $4 --multicore=$5 &
+        $2 --port $4 --multicore=$5 &
+    elif [[ "$1" == "EVIO" ]]; then
+        $2 --port $4 --loops $5 &
     else
-        GOMAXPROCS=8 $2 --port $4 &
+        $2 --port $4 &
     fi
 
     sleep 1
@@ -40,4 +43,5 @@ function gobench {
 
 gobench "GO-HTTP" bin/net-http-server net-http-server/main.go 8081
 gobench "FASTHTTP" bin/fasthttp-server fasthttp-server/main.go 8083
-gobench "GNET" bin/gnet-http-server gnet-http-server/main.go 8084 true
+gobench "EVIO" bin/evio-http-server evio-http-server/main.go 8084 -1
+gobench "GNET" bin/gnet-http-server gnet-http-server/main.go 8085 true

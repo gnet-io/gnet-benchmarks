@@ -2,66 +2,87 @@
 --- BENCH HTTP START ---
 
 --- GO-HTTP ---
-2019/12/17 19:54:08 http server started on port 8081
+2020/02/14 22:12:07 http server started on port 8081
 *** 100 connections, 10 seconds
 Bombarding http://127.0.0.1:8081 for 10s using 100 connection(s)
 [========================================================================================================================================================] 10s
 Done!
 Statistics        Avg      Stdev        Max
-  Reqs/sec     30099.14    5679.24   46015.52
-  Latency        3.31ms     7.62ms   393.08ms
+  Reqs/sec     39855.35   13607.51   62884.39
+  Latency        2.50ms     2.55ms   176.14ms
   Latency Distribution
-     50%     2.34ms
-     75%     2.92ms
-     90%     4.08ms
-     95%     6.17ms
-     99%    42.50ms
+     50%     1.88ms
+     75%     2.48ms
+     90%     4.00ms
+     95%     6.61ms
+     99%    15.13ms
   HTTP codes:
-    1xx - 0, 2xx - 301234, 3xx - 0, 4xx - 0, 5xx - 0
+    1xx - 0, 2xx - 397890, 3xx - 0, 4xx - 0, 5xx - 0
     others - 0
-  Throughput:     5.54MB/s
+  Throughput:     7.33MB/s
 --- DONE ---
 
 --- FASTHTTP ---
-2019/12/17 19:54:19 http server started on port 8083
+2020/02/14 22:12:19 http server started on port 8083
 *** 100 connections, 10 seconds
 Bombarding http://127.0.0.1:8083 for 10s using 100 connection(s)
 [========================================================================================================================================================] 10s
 Done!
 Statistics        Avg      Stdev        Max
-  Reqs/sec     51088.79   10474.95  192678.23
-  Latency        1.92ms     3.95ms   254.21ms
+  Reqs/sec     80887.79   18186.05  308737.26
+  Latency        1.22ms     1.34ms   247.73ms
   Latency Distribution
-     50%     1.53ms
-     75%     1.92ms
-     90%     2.62ms
-     95%     3.44ms
-     99%     8.69ms
+     50%     1.10ms
+     75%     1.34ms
+     90%     1.62ms
+     95%     1.94ms
+     99%     3.95ms
   HTTP codes:
-    1xx - 0, 2xx - 515681, 3xx - 0, 4xx - 0, 5xx - 0
+    1xx - 0, 2xx - 815735, 3xx - 0, 4xx - 0, 5xx - 0
     others - 0
-  Throughput:    10.28MB/s
+  Throughput:    16.26MB/s
 --- DONE ---
 
---- GNET ---
-2019/12/17 19:54:31 HTTP server is listening on [::]:8084 (multi-cores: true, loops: 4)
+--- EVIO ---
+2020/02/14 22:12:30 http server started on port 8084 (loops: 4)
 *** 100 connections, 10 seconds
 Bombarding http://127.0.0.1:8084 for 10s using 100 connection(s)
 [========================================================================================================================================================] 10s
 Done!
 Statistics        Avg      Stdev        Max
-  Reqs/sec     86763.73    9163.57   96254.78
-  Latency        1.16ms     1.20ms    96.16ms
+  Reqs/sec     84266.89   11319.35  113460.46
+  Latency        1.18ms     2.66ms   153.75ms
   Latency Distribution
-     50%     1.09ms
-     75%     1.19ms
-     90%     1.38ms
-     95%     1.68ms
-     99%     3.73ms
+     50%     0.87ms
+     75%     1.16ms
+     90%     1.55ms
+     95%     2.13ms
+     99%     8.62ms
   HTTP codes:
-    1xx - 0, 2xx - 857534, 3xx - 0, 4xx - 0, 5xx - 0
+    1xx - 0, 2xx - 843249, 3xx - 0, 4xx - 0, 5xx - 0
     others - 0
-  Throughput:    13.57MB/s
+  Throughput:    13.35MB/s
+--- DONE ---
+
+--- GNET ---
+2020/02/14 22:12:42 HTTP server is listening on [::]:8085 (multi-cores: true, loops: 4)
+*** 100 connections, 10 seconds
+Bombarding http://127.0.0.1:8085 for 10s using 100 connection(s)
+[========================================================================================================================================================] 10s
+Done!
+Statistics        Avg      Stdev        Max
+  Reqs/sec     86244.51   11459.49   99041.21
+  Latency        1.17ms     1.91ms   176.68ms
+  Latency Distribution
+     50%     1.04ms
+     75%     1.23ms
+     90%     1.51ms
+     95%     1.86ms
+     99%     4.33ms
+  HTTP codes:
+    1xx - 0, 2xx - 853933, 3xx - 0, 4xx - 0, 5xx - 0
+    others - 0
+  Throughput:    13.52MB/s
 --- DONE ---
 
 --- BENCH HTTP DONE ---
