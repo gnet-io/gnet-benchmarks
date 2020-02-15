@@ -36,7 +36,8 @@ function gobench {
 
     sleep 1
     echo "*** 100 connections, 10 seconds"
-    bombardier -c 100 -l http://127.0.0.1:$4
+    bombardier -c 100 -d 10s -l http://127.0.0.1:$4
+    # wrk -c100 -d10s --latency http://127.0.0.1:$4
     echo "--- DONE ---"
     echo ""
 }
