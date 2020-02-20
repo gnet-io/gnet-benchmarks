@@ -5,7 +5,7 @@
 package main
 
 import (
-	"bytes"
+	// "bytes"
 	"flag"
 	"fmt"
 	"log"
@@ -82,11 +82,12 @@ func main() {
 		}
 		is := c.Context().(*evio.InputStream)
 		data := is.Begin(in)
-		if noparse && bytes.Contains(data, []byte("\r\n\r\n")) {
-			// for testing minimal single packet request -> response.
-			out = appendresp(nil, "200 OK", "", res)
-			return
-		}
+		// if noparse && bytes.Contains(data, []byte("\r\n\r\n")) {
+		// 	// for testing minimal single packet request -> response.
+		// 	out = appendresp(nil, "200 OK", "", res)
+		// 	return
+		// }
+		
 		// process the pipeline
 		var req request
 		for {
