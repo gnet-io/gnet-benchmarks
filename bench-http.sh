@@ -36,9 +36,9 @@ function gobench {
 
     sleep 1
     echo "*** 100 connections, 10 seconds"
-    bombardier -c 100 -d 10s -l http://127.0.0.1:$4
+    # bombardier -c 100 -d 10s -l http://127.0.0.1:$4
     # wrk -c256 -d10s --latency http://127.0.0.1:$4
-    # wrk -H 'Host: 127.0.0.1' -H 'Accept: text/plain,text/html;q=0.9,application/xhtml+xml;q=0.9,application/xml;q=0.8,*/*;q=0.7' -H 'Connection: keep-alive' --latency -d 15 -c 256 --timeout 8 -t 4 http://127.0.0.1:$4/plaintext -s pipeline.lua -- 16
+    wrk -H 'Host: 127.0.0.1' -H 'Accept: text/plain,text/html;q=0.9,application/xhtml+xml;q=0.9,application/xml;q=0.8,*/*;q=0.7' -H 'Connection: keep-alive' --latency -d 15 -c 256 --timeout 8 -t 4 http://127.0.0.1:$4/plaintext -s pipeline.lua -- 16
     echo "--- DONE ---"
     echo ""
 }

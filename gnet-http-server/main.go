@@ -9,9 +9,11 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"runtime"
 	"strconv"
 	"strings"
 	"time"
+	"unsafe"
 
 	"github.com/panjf2000/gnet"
 )
@@ -66,7 +68,7 @@ pipeline:
 
 func (hs *httpServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 	log.Printf("HTTP server is listening on %s (multi-cores: %t, loops: %d)\n",
-		srv.Addr.String(), srv.Multicore, srv.NumLoops)
+		srv.Addr.String(), srv.Multicore, srv.NumEventLoop)
 	return
 }
 
@@ -80,6 +82,10 @@ func (hs *httpServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.
 	// handle the request
 	out = frame
 	return
+}
+
+func init() {
+	runtime.GOMAXPROCS(runtime.NumCPU() * 2)
 }
 
 func main() {
@@ -131,11 +137,15 @@ func appendResp(b []byte, status, head, body string) []byte {
 	return b
 }
 
+func b2s(b []byte) string {
+	return *(*string)(unsafe.Pointer(&b))
+}
+
 // parseReq is a very simple http request parser. This operation
 // waits for the entire payload to be buffered before returning a
 // valid request.
 func parseReq(data []byte, req *request) (leftover []byte, err error) {
-	sdata := string(data)
+	sdata := b2s(data)
 	var i, s int
 	var head string
 	var clen int
