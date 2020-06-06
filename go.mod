@@ -13,7 +13,7 @@ require (
 	github.com/kavu/go_reuseport v1.5.0 // indirect
 	github.com/klauspost/compress v1.10.8 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
-	github.com/panjf2000/gnet v1.2.0
+	github.com/panjf2000/gnet v1.2.1
 	github.com/tidwall/evio v1.0.7
 	github.com/valyala/fasthttp v1.14.0
 	golang.org/x/exp v0.0.0-20191129062945-2f5052295587 // indirect
