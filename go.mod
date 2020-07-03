@@ -1,6 +1,6 @@
 module github.com/panjf2000/gnet_benchmarks
 
-go 1.13
+go 1.14
 
 require (
 	github.com/Allenxuxu/eviop v0.0.0-20190919234625-d421704e9f73
@@ -9,16 +9,17 @@ require (
 	github.com/Allenxuxu/toolkit v0.0.0-20200426070240-464ad98cbe75 // indirect
 	github.com/RussellLuo/timingwheel v0.0.0-20191211035242-0e67dbf0ae97 // indirect
 	github.com/ajstarks/svgo v0.0.0-20200320125537-f189e35d30ca // indirect
+	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/jung-kurt/gofpdf v1.16.2 // indirect
 	github.com/kavu/go_reuseport v1.5.0 // indirect
-	github.com/klauspost/compress v1.10.8 // indirect
+	github.com/klauspost/compress v1.10.10 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
-	github.com/panjf2000/gnet v1.2.2
+	github.com/panjf2000/gnet v1.2.4
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/tidwall/evio v1.0.7
 	github.com/valyala/fasthttp v1.14.0
 	golang.org/x/exp v0.0.0-20191129062945-2f5052295587 // indirect
-	golang.org/x/image v0.0.0-20200430140353-33d19683fad8 // indirect
-	golang.org/x/sys v0.0.0-20200602225109-6fdc65e7d980 // indirect
+	golang.org/x/image v0.0.0-20200618115811-c13761719519 // indirect
 	gonum.org/v1/gonum v0.6.1 // indirect
 	gonum.org/v1/netlib v0.0.0-20191031114514-eccb95939662 // indirect
 	gonum.org/v1/plot v0.7.0
