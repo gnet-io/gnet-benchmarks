@@ -13,8 +13,7 @@ require (
 	github.com/jung-kurt/gofpdf v1.16.2 // indirect
 	github.com/kavu/go_reuseport v1.5.0 // indirect
 	github.com/klauspost/compress v1.10.10 // indirect
-	github.com/kr/pretty v0.1.0 // indirect
-	github.com/panjf2000/gnet v1.2.4
+	github.com/panjf2000/gnet v1.2.5
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/tidwall/evio v1.0.7
 	github.com/valyala/fasthttp v1.14.0
