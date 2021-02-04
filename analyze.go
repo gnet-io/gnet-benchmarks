@@ -42,8 +42,8 @@ func autoplot() {
 }
 
 func analyze() {
-	// lines := readlines("results/http_mac.txt", "results/echo_mac.txt", "results/http_linux.txt", "results/echo_linux.txt")
-	lines := readlines("results/http.txt", "results/echo.txt")
+	lines := readlines("results/http_mac.txt", "results/echo_mac.txt", "results/http_linux.txt", "results/echo_linux.txt")
+	//lines := readlines("results/http.txt", "results/echo.txt")
 	var err error
 	for _, line := range lines {
 		rlines := strings.Split(line, "\r")
@@ -78,17 +78,16 @@ func analyze() {
 				}
 			}
 		} else {
-			switch {
-			case category == "echo":
-				if strings.HasPrefix(line, "Packet rate estimate: ") {
+			switch category {
+			case "echo_linux", "echo_mac":
+				if strings.HasPrefix(line, "Aggregate bandwidth: ") {
 					rate, err = strconv.ParseFloat(strings.Split(strings.Split(line, ": ")[1], "↓,")[0], 64)
 					must(err)
 					output()
 				}
-			case category == "http":
-				if strings.HasPrefix(line, "Reqs/sec ") {
-					rate, err = strconv.ParseFloat(
-						strings.Split(strings.TrimSpace(strings.Split(line, "Reqs/sec ")[1]), " ")[0], 64)
+			case "http_linux", "http_mac":
+				if strings.HasPrefix(line, "Requests/sec: ") {
+					rate, err = strconv.ParseFloat(strings.TrimSpace(strings.Split(line, ": ")[1]), 64)
 					must(err)
 					output()
 				}
@@ -120,6 +119,14 @@ func must(err error) {
 }
 
 func plotit(path, title string, values []float64, names []string) {
+	var metricName string
+	switch title {
+	case "echo_linux", "echo_mac":
+		metricName = "Mbps"
+	case "http_linux", "http_mac":
+		metricName = "QPS"
+	}
+
 	plot.DefaultFont = "Helvetica"
 	var groups []plotter.Values
 	for _, value := range values {
@@ -131,7 +138,7 @@ func plotit(path, title string, values []float64, names []string) {
 	}
 	p.Title.Text = title
 	p.Y.Tick.Marker = commaTicks{}
-	p.Y.Label.Text = "Req/s"
+	p.Y.Label.Text = metricName
 	bw := 25.0
 	w := vg.Points(bw)
 	var bars []plot.Plotter
@@ -151,7 +158,7 @@ func plotit(path, title string, values []float64, names []string) {
 	}
 	p.Add(bars...)
 	for i, name := range names {
-		p.Legend.Add(fmt.Sprintf("%s (%.0f req/s)", name, values[i]), barsp[i])
+		p.Legend.Add(fmt.Sprintf("%s (%.0f %s)", name, values[i], metricName), barsp[i])
 	}
 
 	p.Legend.Top = true

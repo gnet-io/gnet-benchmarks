@@ -1,88 +1,79 @@
-
---- BENCH HTTP START ---
+--- BENCH HTTP_MAC START ---
 
 --- GO-HTTP ---
-2020/02/14 22:12:07 http server started on port 8081
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8081 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec     39855.35   13607.51   62884.39
-  Latency        2.50ms     2.55ms   176.14ms
+2021/02/04 18:08:04 http server started on port 8081
+*** 256 connections, 15 seconds
+Running 15s test @ http://127.0.0.1:8081/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    10.21ms    5.15ms  76.46ms   49.05%
+    Req/Sec    51.87k     7.10k   67.24k    65.67%
   Latency Distribution
-     50%     1.88ms
-     75%     2.48ms
-     90%     4.00ms
-     95%     6.61ms
-     99%    15.13ms
-  HTTP codes:
-    1xx - 0, 2xx - 397890, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:     7.33MB/s
---- DONE ---
-
---- FASTHTTP ---
-2020/02/14 22:12:19 http server started on port 8083
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8083 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec     80887.79   18186.05  308737.26
-  Latency        1.22ms     1.34ms   247.73ms
-  Latency Distribution
-     50%     1.10ms
-     75%     1.34ms
-     90%     1.62ms
-     95%     1.94ms
-     99%     3.95ms
-  HTTP codes:
-    1xx - 0, 2xx - 815735, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:    16.26MB/s
+     50%   15.54ms
+     75%   28.38ms
+     90%    0.00us
+     99%    0.00us
+  3096826 requests in 15.01s, 386.89MB read
+  Socket errors: connect 0, read 117, write 0, timeout 0
+Requests/sec: 206260.52
+Transfer/sec:     25.77MB
 --- DONE ---
 
 --- EVIO ---
-2020/02/14 22:12:30 http server started on port 8084 (loops: 4)
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8084 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec     84266.89   11319.35  113460.46
-  Latency        1.18ms     2.66ms   153.75ms
+2021/02/04 18:08:36 http server started on port 8084 (loops: 12)
+*** 256 connections, 15 seconds
+Running 15s test @ http://127.0.0.1:8084/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.23ms    1.58ms  25.32ms   72.34%
+    Req/Sec   297.98k    24.29k  354.58k    76.67%
   Latency Distribution
-     50%     0.87ms
-     75%     1.16ms
-     90%     1.55ms
-     95%     2.13ms
-     99%     8.62ms
-  HTTP codes:
-    1xx - 0, 2xx - 843249, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:    13.35MB/s
+     50%    1.92ms
+     75%    3.05ms
+     90%    4.27ms
+     99%    7.16ms
+  17792256 requests in 15.01s, 1.72GB read
+  Socket errors: connect 0, read 116, write 0, timeout 0
+Requests/sec: 1184998.50
+Transfer/sec:    117.53MB
+--- DONE ---
+
+--- FASTHTTP ---
+2021/02/04 18:08:20 http server started on port 8083
+*** 256 connections, 15 seconds
+Running 15s test @ http://127.0.0.1:8083/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.09ms  731.56us  24.15ms   75.01%
+    Req/Sec   496.46k    60.42k  600.73k    80.17%
+  Latency Distribution
+     50%    1.04ms
+     75%    1.52ms
+     90%    1.96ms
+     99%    0.00us
+  29659136 requests in 15.02s, 4.06GB read
+  Socket errors: connect 0, read 118, write 0, timeout 0
+Requests/sec: 1975135.87
+Transfer/sec:    276.89MB
 --- DONE ---
 
 --- GNET ---
-2020/02/14 22:12:42 HTTP server is listening on [::]:8085 (multi-cores: true, loops: 4)
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8085 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec     86244.51   11459.49   99041.21
-  Latency        1.17ms     1.91ms   176.68ms
+2021/02/04 18:08:53 HTTP server is listening on :8085 (multi-cores: true, loops: 12)
+*** 256 connections, 15 seconds
+Running 15s test @ http://127.0.0.1:8085/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.95ms  813.95us  29.02ms   90.79%
+    Req/Sec   578.95k    54.51k  708.16k    76.33%
   Latency Distribution
-     50%     1.04ms
-     75%     1.23ms
-     90%     1.51ms
-     95%     1.86ms
-     99%     4.33ms
-  HTTP codes:
-    1xx - 0, 2xx - 853933, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:    13.52MB/s
+     50%    0.92ms
+     75%    1.36ms
+     90%    1.74ms
+     99%    0.00us
+  34561120 requests in 15.01s, 4.15GB read
+  Socket errors: connect 0, read 117, write 0, timeout 0
+Requests/sec: 2302869.34
+Transfer/sec:    283.31MB
 --- DONE ---
 
 --- BENCH HTTP DONE ---

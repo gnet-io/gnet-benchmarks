@@ -55,7 +55,7 @@ func main() {
 	var events evio.Events
 	events.NumLoops = loops
 	events.Serving = func(srv evio.Server) (action evio.Action) {
-		log.Printf("http server started on port %d (loops: %d)", port, srv.NumLoops)
+		log.Printf("http server started on port %d (event-loops: %d)", port, srv.NumLoops)
 		if unixsocket != "" {
 			log.Printf("http server started at %s", unixsocket)
 		}
@@ -87,7 +87,7 @@ func main() {
 		// 	out = appendresp(nil, "200 OK", "", res)
 		// 	return
 		// }
-		
+
 		// process the pipeline
 		var req request
 		for {

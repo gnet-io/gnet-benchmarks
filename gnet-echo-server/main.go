@@ -18,10 +18,11 @@ type echoServer struct {
 }
 
 func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
-	log.Printf("Echo server is listening on %s (multi-cores: %t, loops: %d)\n",
+	log.Printf("Echo server is listening on %s (multi-cores: %t, event-loops: %d)\n",
 		srv.Addr.String(), srv.Multicore, srv.NumEventLoop)
 	return
 }
+
 // func (es *echoServer) OnClosed(c gnet.Conn, err error) (action gnet.Action) {
 // 	fmt.Printf("Conn: %s is closed.\n", c.RemoteAddr().String())
 // 	return

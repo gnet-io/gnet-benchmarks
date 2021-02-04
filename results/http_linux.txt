@@ -1,67 +1,75 @@
-
---- BENCH HTTP START ---
+--- BENCH HTTP_LINUX START ---
 
 --- GO-HTTP ---
-2019/09/14 16:03:16 http server started on port 8081
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8081 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec    188483.52    8482.68  209310.66
-  Latency      528.53us   168.35us    13.38ms
+2021/02/04 18:01:20 http server started on port 8081
+*** 256 connections, 15 seconds
+Running 30s test @ http://127.0.0.1:8081/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    27.52ms   25.16ms 320.92ms   76.84%
+    Req/Sec    79.02k     6.90k  107.70k    69.67%
   Latency Distribution
-     50%   466.00us
-     75%   677.00us
-     90%     0.90ms
-     95%     1.13ms
-     99%     2.02ms
-  HTTP codes:
-    1xx - 0, 2xx - 1884975, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:    34.69MB/s
+     50%   21.46ms
+     75%   38.35ms
+     90%   60.97ms
+     99%  114.15ms
+  9445712 requests in 30.04s, 1.15GB read
+Requests/sec: 314471.07
+Transfer/sec:     39.29MB
+--- DONE ---
+
+--- EVIO ---
+2021/02/04 18:02:23 http server started on port 8084 (loops: 8)
+*** 256 connections, 15 seconds
+Running 30s test @ http://127.0.0.1:8084/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.80ms    2.43ms  32.44ms   80.31%
+    Req/Sec   317.99k    24.27k  401.11k    69.17%
+  Latency Distribution
+     50%    2.09ms
+     75%    3.88ms
+     90%    6.05ms
+     99%   11.13ms
+  37988416 requests in 30.03s, 3.68GB read
+Requests/sec: 1265188.68
+Transfer/sec:    125.48MB
 --- DONE ---
 
 --- FASTHTTP ---
-2019/09/14 16:03:28 http server started on port 8083
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8083 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec    270468.52    9906.19  295669.74
-  Latency      367.49us    85.39us    15.30ms
+2021/02/04 18:01:52 http server started on port 8083
+*** 256 connections, 15 seconds
+Running 30s test @ http://127.0.0.1:8083/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.50ms    3.56ms  59.41ms   88.45%
+    Req/Sec   646.31k   121.30k    0.91M    61.81%
   Latency Distribution
-     50%   358.00us
-     75%   474.00us
-     90%   574.00us
-     95%   636.00us
-     99%   780.00us
-  HTTP codes:
-    1xx - 0, 2xx - 2704738, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:    54.42MB/s
+     50%    1.13ms
+     75%    2.78ms
+     90%    6.79ms
+     99%   16.75ms
+  77260928 requests in 30.07s, 10.58GB read
+Requests/sec: 2569549.89
+Transfer/sec:    360.23MB
 --- DONE ---
 
 --- GNET ---
-2019/09/14 16:03:39 http server started on port 8084 (loops: 8)
-*** 100 connections, 10 seconds
-Bombarding http://127.0.0.1:8084 for 10s using 100 connection(s)
-[========================================================================================================================================================] 10s
-Done!
-Statistics        Avg      Stdev        Max
-  Reqs/sec    306129.78   12607.35  322971.61
-  Latency      324.39us   439.13us    34.28ms
+2021/02/04 18:02:54 HTTP server is listening on :8085 (multi-cores: true, loops: 8)
+*** 256 connections, 15 seconds
+Running 30s test @ http://127.0.0.1:8085/plaintext
+  4 threads and 256 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.50ms    3.28ms  36.44ms   87.35%
+    Req/Sec   676.73k    71.79k    0.94M    68.11%
   Latency Distribution
-     50%   224.00us
-     75%   363.00us
-     90%   541.00us
-     95%   758.00us
-     99%     2.03ms
-  HTTP codes:
-    1xx - 0, 2xx - 3060739, 3xx - 0, 4xx - 0, 5xx - 0
-    others - 0
-  Throughput:    48.45MB/s
+     50%    1.15ms
+     75%    3.23ms
+     90%    6.70ms
+     99%   15.36ms
+  80931616 requests in 30.10s, 9.72GB read
+Requests/sec: 2688946.59
+Transfer/sec:    330.80MB
 --- DONE ---
 
 --- BENCH HTTP DONE ---

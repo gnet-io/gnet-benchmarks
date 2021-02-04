@@ -1,77 +1,62 @@
---- BENCH ECHO START ---
+--- BENCH ECHO_MAC START ---
 
 --- GO-NET ---
-2019/12/19 13:21:04 echo server started on port 5000
-*** 100 connections, 10 seconds, 6 byte packets
+2021/02/04 18:26:40 echo server started on port 5000
+*** 100 connections, 20 seconds, 6 byte packets
 Destination: [127.0.0.1]:5000
 Interface lo0 address [127.0.0.1]:0
 Using interface lo0 to connect to [127.0.0.1]:5000
 Ramped up to 100 connections.
-Total data sent:     3243.6 MiB (3401171840 bytes)
-Total data received: 3244.2 MiB (3401796847 bytes)
-Bandwidth per channel: 51.805⇅ Mbps (6475.7 kBps)
-Aggregate bandwidth: 2720.033↓, 2719.533↑ Mbps
-Packet rate estimate: 271905.6↓, 236952.1↑ (5↓, 13↑ TCP MSS/op)
-Test duration: 10.0052 s.
---- DONE ---
-
---- EVIO ---
-2019/12/19 13:21:16 echo server started on port 5001 (loops: 4)
-*** 100 connections, 10 seconds, 6 byte packets
-Destination: [127.0.0.1]:5001
-Interface lo0 address [127.0.0.1]:0
-Using interface lo0 to connect to [127.0.0.1]:5001
-Ramped up to 100 connections.
-Total data sent:     8769.0 MiB (9194970027 bytes)
-Total data received: 8777.2 MiB (9203547746 bytes)
-Bandwidth per channel: 147.168⇅ Mbps (18396.0 kBps)
-Aggregate bandwidth: 7361.843↓, 7354.982↑ Mbps
-Packet rate estimate: 635619.5↓, 636576.6↑ (11↓, 27↑ TCP MSS/op)
-Test duration: 10.0014 s.
---- DONE ---
-
---- EVIOP ---
-2019/12/19 13:21:29 echo server started on port 5002 (loops: 4)
-*** 100 connections, 10 seconds, 6 byte packets
-Destination: [127.0.0.1]:5002
-Interface lo0 address [127.0.0.1]:0
-Using interface lo0 to connect to [127.0.0.1]:5002
-Ramped up to 100 connections.
-Total data sent:     8714.8 MiB (9138161668 bytes)
-Total data received: 8714.5 MiB (9137840643 bytes)
-Bandwidth per channel: 146.166⇅ Mbps (18270.8 kBps)
-Aggregate bandwidth: 7308.196↓, 7308.452↑ Mbps
-Packet rate estimate: 663818.6↓, 629545.1↑ (11↓, 24↑ TCP MSS/op)
-Test duration: 10.0028 s.
+Total data sent:     9340.7 MiB (9794401132 bytes)
+Total data received: 9341.3 MiB (9795087582 bytes)
+Bandwidth per channel: 78.314⇅ Mbps (9789.3 kBps)
+Aggregate bandwidth: 3915.843↓, 3915.568↑ Mbps
+Packet rate estimate: 409669.6↓, 346958.5↑ (5↓, 6↑ TCP MSS/op)
+Test duration: 20.0112 s.
 --- DONE ---
 
 --- GEV ---
-*** 100 connections, 10 seconds, 6 byte packets
+*** 100 connections, 20 seconds, 6 byte packets
 Destination: [127.0.0.1]:5003
 Interface lo0 address [127.0.0.1]:0
 Using interface lo0 to connect to [127.0.0.1]:5003
 Ramped up to 100 connections.
-Total data sent:     8577.3 MiB (8993975856 bytes)
-Total data received: 8362.0 MiB (8768145195 bytes)
-Bandwidth per channel: 142.073⇅ Mbps (17759.2 kBps)
-Aggregate bandwidth: 7013.350↓, 7193.984↑ Mbps
-Packet rate estimate: 610255.5↓, 634044.2↑ (11↓, 28↑ TCP MSS/op)
-Test duration: 10.0017 s.
+Total data sent:     23806.9 MiB (24963318608 bytes)
+Total data received: 23564.0 MiB (24708670494 bytes)
+Bandwidth per channel: 198.588⇅ Mbps (24823.5 kBps)
+Aggregate bandwidth: 9878.496↓, 9980.304↑ Mbps
+Packet rate estimate: 918902.6↓, 867784.0↑ (11↓, 21↑ TCP MSS/op)
+Test duration: 20.0101 s.
+--- DONE ---
+
+--- EVIO ---
+2021/02/04 18:27:02 echo server started on port 5001 (loops: 12)
+*** 100 connections, 20 seconds, 6 byte packets
+Destination: [127.0.0.1]:5001
+Interface lo0 address [127.0.0.1]:0
+Using interface lo0 to connect to [127.0.0.1]:5001
+Ramped up to 100 connections.
+Total data sent:     26016.9 MiB (27280742344 bytes)
+Total data received: 26015.8 MiB (27279545806 bytes)
+Bandwidth per channel: 218.117⇅ Mbps (27264.6 kBps)
+Aggregate bandwidth: 10905.601↓, 10906.079↑ Mbps
+Packet rate estimate: 1025757.0↓, 936401.1↑ (11↓, 21↑ TCP MSS/op)
+Test duration: 20.0114 s.
 --- DONE ---
 
 --- GNET ---
-2019/12/19 13:21:54 Server is running under multi-core: true, loops: 4
-*** 100 connections, 10 seconds, 6 byte packets
+2021/02/04 18:28:09 Echo server is listening on :5004 (multi-cores: true, loops: 12)
+*** 100 connections, 20 seconds, 6 byte packets
 Destination: [127.0.0.1]:5004
 Interface lo0 address [127.0.0.1]:0
 Using interface lo0 to connect to [127.0.0.1]:5004
 Ramped up to 100 connections.
-Total data sent:     11095.3 MiB (11634235440 bytes)
-Total data received: 11101.0 MiB (11640218844 bytes)
-Bandwidth per channel: 186.192⇅ Mbps (23274.0 kBps)
-Aggregate bandwidth: 9312.008↓, 9307.222↑ Mbps
-Packet rate estimate: 837706.5↓, 813935.4↑ (11↓, 25↑ TCP MSS/op)
-Test duration: 10.0002 s.
+Total data sent:     27557.9 MiB (28896583144 bytes)
+Total data received: 27563.4 MiB (28902310900 bytes)
+Bandwidth per channel: 231.126⇅ Mbps (28890.7 kBps)
+Aggregate bandwidth: 11557.422↓, 11555.132↑ Mbps
+Packet rate estimate: 1081699.8↓, 994050.4↑ (11↓, 22↑ TCP MSS/op)
+Test duration: 20.0061 s.
 --- DONE ---
 
 --- BENCH ECHO DONE ---

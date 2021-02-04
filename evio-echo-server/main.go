@@ -32,7 +32,7 @@ func main() {
 	var events evio.Events
 	events.NumLoops = loops
 	events.Serving = func(srv evio.Server) (action evio.Action) {
-		log.Printf("echo server started on port %d (loops: %d)", port, srv.NumLoops)
+		log.Printf("echo server started on port %d (event-loops: %d)", port, srv.NumLoops)
 		if reuseport {
 			log.Printf("reuseport")
 		}

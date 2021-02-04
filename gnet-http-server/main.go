@@ -45,7 +45,7 @@ pipeline:
 }
 
 func (hs *httpServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
-	log.Printf("HTTP server is listening on %s (multi-cores: %t, loops: %d)\n",
+	log.Printf("HTTP server is listening on %s (multi-cores: %t, event-loops: %d)\n",
 		srv.Addr.String(), srv.Multicore, srv.NumEventLoop)
 	return
 }
