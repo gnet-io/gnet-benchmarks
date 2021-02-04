@@ -2,7 +2,7 @@
 
 Required tools:
 
-- [bombardier](https://github.com/codesenberg/bombardier) for HTTP
+- [wrk](https://github.com/wg/wrk) for HTTP
 - [tcpkali](https://github.com/machinezone/tcpkali) for Echo
 
 Required Go packages:
