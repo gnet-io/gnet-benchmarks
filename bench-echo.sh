@@ -94,7 +94,7 @@ function go_bench() {
   echo ""
 }
 
-go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 7001
-go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 7002 -1
-go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 7000 true
-go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 7004
+go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 7000
+go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 7001 -1
+go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 7002 true
+go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 7003
