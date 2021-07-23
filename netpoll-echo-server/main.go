@@ -47,5 +47,14 @@ func main() {
 
 // 读事件处理
 func handler(ctx context.Context, connection netpoll.Connection) error {
+	reader := connection.Reader()
+	buf, err := reader.Next(reader.Len())
+	if err != nil {
+		return err
+	}
+	_, err = connection.Write(buf)
+	if err != nil {
+		return err
+	}
 	return connection.Writer().Flush()
 }
