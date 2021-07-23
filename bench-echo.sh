@@ -38,18 +38,19 @@ echo ""
 cd "$(dirname "${BASH_SOURCE[0]}")"
 function cleanup() {
   echo "--- BENCH ECHO DONE ---"
-  kill -9 "$(jobs -rp)"
-  wait "$(jobs -rp)" 2>/dev/null
+  kill -9 $(jobs -rp)
+  wait $(jobs -rp) 2>/dev/null
 }
 trap cleanup EXIT
 
 mkdir -p bin
 
-eval "$(pkill -9 net-echo-server || printf "")"
-eval "$(pkill -9 evio-echo-server || printf "")"
-eval "$(pkill -9 eviop-echo-server || printf "")"
-eval "$(pkill -9 gev-echo-server || printf "")"
-eval "$(pkill -9 gnet-echo-server || printf "")"
+eval "$(pkill -9 net-echo || printf "")"
+eval "$(pkill -9 evio-echo || printf "")"
+eval "$(pkill -9 eviop-echo || printf "")"
+eval "$(pkill -9 gev-echo || printf "")"
+eval "$(pkill -9 netpoll-echo || printf "")"
+eval "$(pkill -9 gnet-echo || printf "")"
 
 conn_num=$1
 test_duration=$2
