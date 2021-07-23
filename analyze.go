@@ -80,7 +80,7 @@ func analyze() {
 		} else {
 			switch category {
 			case "echo_linux", "echo_mac":
-				if strings.HasPrefix(line, "Aggregate bandwidth: ") {
+				if strings.HasPrefix(line, "Packet rate estimate: ") {
 					rate, err = strconv.ParseFloat(strings.Split(strings.Split(line, ": ")[1], "↓,")[0], 64)
 					must(err)
 					output()
@@ -122,7 +122,7 @@ func plotit(path, title string, values []float64, names []string) {
 	var metricName string
 	switch title {
 	case "echo_linux", "echo_mac":
-		metricName = "Mbps"
+		metricName = "QPS"
 	case "http_linux", "http_mac":
 		metricName = "QPS"
 	}

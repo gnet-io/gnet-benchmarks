@@ -12,7 +12,7 @@ function print_usage {
     echo ""
     echo "--- EXAMPLE ---"
     echo ""
-    echo "$program_name 100 10 1024"
+    echo "$program_name 1000 30 1024"
     echo ""
     exit 1
 }
@@ -94,8 +94,7 @@ function go_bench() {
   echo ""
 }
 
-go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 7000 true
 go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 7001
 go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 7002 -1
-go_bench "GEV" bin/gev-echo-server gev-echo-server/echo.go 7003 -1
+go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 7000 true
 go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 7004
