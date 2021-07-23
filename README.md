@@ -33,50 +33,21 @@ Like all benchmarks ever made in the history of whatever, YMMV. Please tweak and
 ```powershell
 # Machine information
         OS : Ubuntu 20.04/x86_64
-       CPU : 8 Processors, AMD EPYC 7K62 48-Core Processor
+       CPU : 8 processors, AMD EPYC 7K62 48-Core Processor
     Memory : 16.0 GiB
 
 # Go version and settings
-Go Version : go1.15.7 linux/amd64
+Go Version : go1.16.5 linux/amd64
 GOMAXPROCS : 8
 
 # Netwokr settings
-TCP connections : 300
-Test duration   : 30s
-```
-### Contrast of the similar networking libraries:
-
-#### Echo Server
-![](results/echo_linux.png)
-
-#### HTTP Server
-
-![](results/http_linux.png)
-
-## On FreeBSD (kqueue)
-
-### Test Environment
-
-```powershell
-# Machine information
-        OS : macOS Catalina 10.15.7/x86_64
-       CPU : 6-Core Intel Core i7
-    Memory : 16.0 GiB
-
-# Go version and configurations
-Go Version : go version go1.15.7 darwin/amd64
-GOMAXPROCS : 12
-
-# Netwokr settings
-TCP connections : 100
-Test duration   : 20s
+TCP connections : 500/1000/5000/10000
+Packet size     : 512/1024/2048/4096/8192/16384/32768/65536
+Test duration   : 15s
 ```
 
 #### Echo Server
 
-![](results/echo_mac.png)
+![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_conn_linux.png)
 
-#### HTTP Server
-
-![](results/http_mac.png)
-
+![](https://github.com/panjf2000/gnet_benchmarks/raw/master/results/echo_packet_linux.png)
