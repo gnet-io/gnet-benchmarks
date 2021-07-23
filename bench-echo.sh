@@ -38,7 +38,9 @@ echo ""
 cd "$(dirname "${BASH_SOURCE[0]}")"
 function cleanup() {
   echo "--- BENCH ECHO DONE ---"
+  # shellcheck disable=SC2046
   kill -9 $(jobs -rp)
+  # shellcheck disable=SC2046
   wait $(jobs -rp) 2>/dev/null
 }
 trap cleanup EXIT
@@ -55,8 +57,7 @@ eval "$(pkill -9 gnet-echo || printf "")"
 conn_num=$1
 test_duration=$2
 packet_size=$3
-pre_packet=$(< /dev/urandom tr -dc 'a-zA-Z0-9' | fold -w `expr "$packet_size" - 8` | head -n 1)
-packet="ECHO/1.0""$pre_packet"
+packet=$(< /dev/urandom tr -dc 'a-zA-Z0-9' | fold -w "$packet_size" | head -n 1)
 
 echo "--- ECHO PACKET ---"
 echo "$packet"
@@ -87,7 +88,7 @@ function go_bench() {
   printf "*** %d connections, %d seconds, packet size: %d bytes\n" "$conn_num" "$test_duration" "$packet_size"
   echo ""
   
-  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" --latency-marker "ECHO/1.0" 127.0.0.1:"$4"
+  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" 127.0.0.1:"$4"
   echo ""
   echo "--- BENCHMARK DONE ---"
   echo ""
