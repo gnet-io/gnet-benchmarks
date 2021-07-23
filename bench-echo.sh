@@ -88,7 +88,7 @@ function go_bench() {
   printf "*** %d connections, %d seconds, packet size: %d bytes\n" "$conn_num" "$test_duration" "$packet_size"
   echo ""
   
-  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" 127.0.0.1:"$4"
+  tcpkali --connections "$conn_num" --connect-rate 100000 --duration "$test_duration"'s' -m "$packet" 127.0.0.1:"$4"
   echo ""
   echo "--- BENCHMARK DONE ---"
   echo ""
