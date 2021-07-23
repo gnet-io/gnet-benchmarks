@@ -52,7 +52,7 @@ func handler(ctx context.Context, connection netpoll.Connection) error {
 	if err != nil {
 		return err
 	}
-	_, err = connection.Write(buf)
+	_, err = connection.Writer().WriteBinary(buf)
 	if err != nil {
 		return err
 	}
