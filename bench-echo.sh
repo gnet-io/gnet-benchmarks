@@ -1,5 +1,34 @@
 #!/bin/bash
 
+program_name=$0
+
+function print_usage {
+    echo ""
+    echo "Usage: $program_name [connections] [duration] [size]"
+    echo ""
+    echo "connections:  Connections to keep open to the destinations"
+    echo "duration:     Exit after the specified amount of time"
+    echo "size:         single packet size for benchmark"
+    echo ""
+    echo "--- EXAMPLE ---"
+    echo ""
+    echo "$program_name 100 10 1024"
+    echo ""
+    exit 1
+}
+
+# if less than two arguments supplied, display usage
+if [  $# -le 1 ]; then
+		print_usage
+		exit 1
+fi
+
+# check whether user had supplied -h or --help . If yes display usage
+if [[ ( $# == "--help") ||  $# == "-h" ]]; then
+  print_usage
+  exit 0
+fi
+
 set -e
 
 echo ""
