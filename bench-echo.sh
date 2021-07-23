@@ -55,7 +55,8 @@ eval "$(pkill -9 gnet-echo || printf "")"
 conn_num=$1
 test_duration=$2
 packet_size=$3
-packet=$(< /dev/urandom tr -dc 'a-zA-Z0-9' | fold -w "$packet_size" | head -n 1)
+pre_packet=$(< /dev/urandom tr -dc 'a-zA-Z0-9' | fold -w `expr "$packet_size" - 8` | head -n 1)
+packet="ECHO/1.0""$pre_packet"
 
 echo "--- ECHO PACKET ---"
 echo "$packet"
@@ -86,14 +87,14 @@ function go_bench() {
   printf "*** %d connections, %d seconds, packet size: %d bytes\n" "$conn_num" "$test_duration" "$packet_size"
   echo ""
   
-  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" 127.0.0.1:"$4"
+  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" --latency-marker "ECHO/1.0" 127.0.0.1:"$4"
   echo ""
   echo "--- BENCHMARK DONE ---"
   echo ""
 }
 
-go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 5000
-go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 5001 -1
-go_bench "GEV" bin/gev-echo-server gev-echo-server/echo.go 5003 -1
-go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 5004
-go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 5005 true
+go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 7000 true
+go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 7001
+go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 7002 -1
+go_bench "GEV" bin/gev-echo-server gev-echo-server/echo.go 7003 -1
+go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 7004
