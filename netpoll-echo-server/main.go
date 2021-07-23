@@ -18,7 +18,7 @@ func main() {
 	// 创建 listener
 	listener, err := netpoll.CreateListener(network, address)
 	if err != nil {
-		panic("create netpoll listener fail")
+		panic(fmt.Sprintf("create netpoll listener fail, error: %v", err))
 	}
 
 	// handle: 连接读数据和处理逻辑
@@ -34,13 +34,13 @@ func main() {
 	// 创建 EventLoop
 	eventLoop, err := netpoll.NewEventLoop(onRequest, opts...)
 	if err != nil {
-		panic("create netpoll event-loop fail")
+		panic(fmt.Sprintf("create netpoll event-loop fail, error: %v", err))
 	}
 
 	// 运行 Server
 	err = eventLoop.Serve(listener)
 	if err != nil {
-		panic("netpoll server exit")
+		panic(fmt.Sprintf("netpoll server exit, error: %v", err))
 	}
 }
 
