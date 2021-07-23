@@ -57,7 +57,8 @@ eval "$(pkill -9 gnet-echo || printf "")"
 conn_num=$1
 test_duration=$2
 packet_size=$3
-packet=$(< /dev/urandom tr -dc 'a-zA-Z0-9' | fold -w "$packet_size" | head -n 1)
+#packet=$(< /dev/urandom tr -dc 'a-zA-Z0-9' | fold -w "$packet_size" | head -n 1)
+packet=$(LC_ALL=C bash -c "< /dev/urandom tr -dc a-zA-Z0-9 | fold -w $packet_size | head -n 1")
 
 echo "--- ECHO PACKET ---"
 echo "$packet"
