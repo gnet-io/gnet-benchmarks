@@ -35,9 +35,9 @@ function go_bench() {
   echo "--- $1 ---"
   echo ""
   if [[ "$1" == "GNET" ]]; then
-    go build -tags=poll_opt -gcflags="-l=4" -ldflags="-s -w" -o $2 $3
+    go build -tags=poll_opt -gcflags="-l=4" -ldflags="-s -w" -o "$2" "$3"
   else
-    go build -gcflags="-l=4" -ldflags="-s -w" -o $2 $3
+    go build -gcflags="-l=4" -ldflags="-s -w" -o "$2" "$3"
   fi
 
   if [[ "$1" == "GO-NET" ]]; then
@@ -48,10 +48,14 @@ function go_bench() {
     $2 --port "$4" --loops "$5" &
   fi
 
-  sleep 1
-  printf "*** %d connections, %d seconds, packet size: %d bytes\n" $conn_num $test_duration $packet_size
+  echo "Warming up for 3 seconds..."
+  sleep 3
+  echo ""
+
+  echo "--- START ---"
+  printf "*** %d connections, %d seconds, packet size: %d bytes\n" "$conn_num" "$test_duration" "$packet_size"
   
-  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" 127.0.0.1:$4
+  tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" 127.0.0.1:"$4"
   echo ""
   echo "--- DONE ---"
   echo ""
