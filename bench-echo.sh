@@ -52,12 +52,13 @@ function go_bench() {
   sleep 3
   echo ""
 
-  echo "--- START ---"
+  echo "--- BENCHMARK START ---"
   printf "*** %d connections, %d seconds, packet size: %d bytes\n" "$conn_num" "$test_duration" "$packet_size"
+  echo ""
   
   tcpkali -c "$conn_num" -T "$test_duration"'s' -m "$packet" 127.0.0.1:"$4"
   echo ""
-  echo "--- DONE ---"
+  echo "--- BENCHMARK DONE ---"
   echo ""
 }
 
