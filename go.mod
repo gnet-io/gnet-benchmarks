@@ -9,6 +9,7 @@ require (
 	github.com/Allenxuxu/toolkit v0.0.0-20200426070240-464ad98cbe75 // indirect
 	github.com/RussellLuo/timingwheel v0.0.0-20191211035242-0e67dbf0ae97 // indirect
 	github.com/ajstarks/svgo v0.0.0-20200320125537-f189e35d30ca // indirect
+	github.com/cloudwego/netpoll v0.0.3
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/jung-kurt/gofpdf v1.16.2 // indirect
 	github.com/kavu/go_reuseport v1.5.0 // indirect

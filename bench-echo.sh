@@ -69,7 +69,7 @@ function go_bench() {
     go build -gcflags="-l=4" -ldflags="-s -w" -o "$2" "$3"
   fi
 
-  if [[ "$1" == "GO-NET" ]]; then
+  if [[ "$1" == "GO-NET" || "$1" == "NETPOLL" ]]; then
     $2 --port "$4" &
   elif [[ "$1" == "GNET" ]]; then
     $2 --port "$4" --multicore="$5" &
@@ -94,4 +94,5 @@ function go_bench() {
 go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 5000
 go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 5001 -1
 go_bench "GEV" bin/gev-echo-server gev-echo-server/echo.go 5003 -1
-go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 5004 true
+go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 5004
+go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 5005 true

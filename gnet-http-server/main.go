@@ -73,5 +73,5 @@ func main() {
 	hc := &httpCodec{delimiter: []byte("\r\n\r\n")}
 
 	// Start serving!
-	log.Fatal(gnet.Serve(http, fmt.Sprintf("tcp://:%d", port), gnet.WithMulticore(multicore), gnet.WithCodec(hc)))
+	log.Fatal(gnet.Serve(http, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore), gnet.WithCodec(hc)))
 }

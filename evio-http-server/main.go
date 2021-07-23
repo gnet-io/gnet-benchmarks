@@ -114,7 +114,7 @@ func main() {
 		ssuf = "-net"
 	}
 	// We at least want the single http address.
-	addrs := []string{fmt.Sprintf("tcp"+ssuf+"://:%d", port)}
+	addrs := []string{fmt.Sprintf("tcp"+ssuf+"://127.0.0.1:%d", port)}
 	if unixsocket != "" {
 		addrs = append(addrs, fmt.Sprintf("unix"+ssuf+"://%s", unixsocket))
 	}

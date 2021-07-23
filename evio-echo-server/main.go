@@ -55,5 +55,5 @@ func main() {
 	if stdlib {
 		scheme += "-net"
 	}
-	log.Fatal(evio.Serve(events, fmt.Sprintf("%s://:%d", scheme, port)))
+	log.Fatal(evio.Serve(events, fmt.Sprintf("%s://127.0.0.1:%d", scheme, port)))
 }

@@ -23,10 +23,6 @@ func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 	return
 }
 
-// func (es *echoServer) OnClosed(c gnet.Conn, err error) (action gnet.Action) {
-// 	fmt.Printf("Conn: %s is closed.\n", c.RemoteAddr().String())
-// 	return
-// }
 func (es *echoServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
 	// Echo synchronously.
 	out = frame
@@ -52,5 +48,5 @@ func main() {
 	flag.BoolVar(&multicore, "multicore", false, "--multicore true")
 	flag.Parse()
 	echo := new(echoServer)
-	log.Fatal(gnet.Serve(echo, fmt.Sprintf("tcp://:%d", port), gnet.WithMulticore(multicore)))
+	log.Fatal(gnet.Serve(echo, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore)))
 }
