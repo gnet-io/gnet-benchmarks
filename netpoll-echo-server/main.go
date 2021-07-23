@@ -12,6 +12,7 @@ import (
 func main() {
 	var port int
 	flag.IntVar(&port, "port", 8080, "server port")
+	flag.Parse()
 
 	network, address := "tcp", fmt.Sprintf("127.0.0.1:%d", port)
 
