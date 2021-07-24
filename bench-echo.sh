@@ -19,8 +19,8 @@ function print_usage {
 
 # if less than two arguments supplied, display usage
 if [  $# -le 1 ]; then
-		print_usage
-		exit 1
+  print_usage
+  exit 1
 fi
 
 # check whether user had supplied -h or --help . If yes display usage
