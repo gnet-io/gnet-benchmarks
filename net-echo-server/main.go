@@ -5,6 +5,7 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"log"
@@ -34,13 +35,28 @@ func main() {
 				_ = conn.Close()
 			}()
 			//log.Printf("opened: %d: %s", id, conn.RemoteAddr().String())
-			var packet [0xFFF]byte
+			inBuf := make([]byte, 64*1024)
+			outBuf := bytes.NewBuffer(make([]byte, 0, 64*1024))
 			for {
-				n, err := conn.Read(packet[:])
+				rn, err := conn.Read(inBuf)
 				if err != nil {
 					return
 				}
-				_, _ = conn.Write(packet[:n])
+
+				var wn int
+				if outBuf.Len() != 0 {
+					outBuf.Write(inBuf[:rn])
+					wn, err = conn.Write(outBuf.Bytes())
+					outBuf.Next(wn)
+				} else {
+					wn, err = conn.Write(inBuf[:rn])
+					if wn != rn {
+						outBuf.Write(inBuf[wn:])
+					}
+				}
+				if err != nil {
+					return
+				}
 			}
 		}(id, conn)
 	}
