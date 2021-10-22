@@ -81,8 +81,8 @@ function go_bench() {
     $2 --port "$4" --loops "$5" &
   fi
 
-  echo "Warming up for 3 seconds..."
-  sleep 3
+  echo "Warming up for 1 seconds..."
+  sleep 1
   echo ""
 
   echo "--- BENCHMARK START ---"
@@ -95,7 +95,7 @@ function go_bench() {
   echo ""
 }
 
-go_bench "GO-NET" bin/net-echo-server net-echo-server/main.go 7000
-go_bench "EVIO" bin/evio-echo-server evio-echo-server/main.go 7001 -1
-go_bench "GNET" bin/gnet-echo-server gnet-echo-server/main.go 7002 true
-go_bench "NETPOLL" bin/netpoll-echo-server netpoll-echo-server/main.go 7003
+go_bench "GO-NET" bin/echo-net-server echo-net-server/main.go 7000
+go_bench "EVIO" bin/echo-evio-server echo-evio-server/main.go 7001 -1
+go_bench "GNET" bin/echo-gnet-server echo-gnet-server/main.go 7002 true
+go_bench "NETPOLL" bin/echo-netpoll-server echo-netpoll-server/main.go 7003

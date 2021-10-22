@@ -23,14 +23,14 @@ func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 	return
 }
 
-func (es *echoServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
+func (es *echoServer) React(packet []byte, c gnet.Conn) (out []byte, action gnet.Action) {
 	// Echo synchronously.
-	out = frame
+	out = append([]byte{}, packet ...)
 	return
 
 	/*
 		// Echo asynchronously.
-		data := append([]byte{}, frame...)
+		data := append([]byte{}, packet...)
 		go func() {
 			time.Sleep(time.Second)
 			c.AsyncWrite(data)

@@ -45,7 +45,7 @@ func main() {
 		if trace {
 			log.Printf("%s", strings.TrimSpace(string(in)))
 		}
-		out = in
+		out = append([]byte{}, in...)
 		return
 	}
 	scheme := "tcp"

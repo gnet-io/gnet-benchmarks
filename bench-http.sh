@@ -43,7 +43,7 @@ function gobench() {
   echo ""
 }
 
-gobench "GO-HTTP" bin/net-http-server net-http-server/main.go 8081
-gobench "FASTHTTP" bin/fasthttp-server fasthttp-server/main.go 8083
-gobench "EVIO" bin/evio-http-server evio-http-server/main.go 8084 -1
-gobench "GNET" bin/gnet-http-server gnet-http-server/main.go 8085 true
+gobench "GO-HTTP" bin/http-net-server http-net-server/main.go 8081
+gobench "FASTHTTP" bin/http-fasthttp-server http-fasthttp-server/main.go 8083
+gobench "EVIO" bin/http-evio-server http-evio-server/main.go 8084 -1
+gobench "GNET" bin/http-gnet-server http-gnet-server/main.go 8085 true

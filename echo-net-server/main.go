@@ -35,8 +35,8 @@ func main() {
 				_ = conn.Close()
 			}()
 			//log.Printf("opened: %d: %s", id, conn.RemoteAddr().String())
-			inBuf := make([]byte, 4*1024)
-			outBuf := bytes.NewBuffer(make([]byte, 0, 4*1024))
+			inBuf := make([]byte, 16*1024)
+			outBuf := bytes.NewBuffer(make([]byte, 0, 16*1024))
 			for {
 				rn, err := conn.Read(inBuf)
 				if err != nil {
