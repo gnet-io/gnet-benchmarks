@@ -5,7 +5,6 @@
 package main
 
 import (
-	"bytes"
 	"flag"
 	"fmt"
 	"log"
@@ -14,50 +13,35 @@ import (
 
 func main() {
 	var port int
-	flag.IntVar(&port, "port", 5000, "server port")
+	flag.IntVar(&port, "port", 7000, "server port")
 	flag.Parse()
-	ln, err := net.Listen("tcp4", fmt.Sprintf(":%d", port))
+	ln, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer ln.Close()
 	log.Printf("echo server started on port %d", port)
-	var id int
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
 			log.Fatal(err)
 		}
-		id++
-		go func(id int, conn net.Conn) {
-			defer func() {
-				// log.Printf("closed: %d", id)
-				_ = conn.Close()
-			}()
-			// log.Printf("opened: %d: %s", id, conn.RemoteAddr().String())
-			inBuf := make([]byte, 16*1024)
-			outBuf := bytes.NewBuffer(make([]byte, 0, 16*1024))
+		go func(conn net.Conn) {
+			defer conn.Close()
+			var (
+				rn, wn int
+				buf    [0x4000]byte
+			)
 			for {
-				rn, err := conn.Read(inBuf)
+				rn, err = conn.Read(buf[:])
 				if err != nil {
 					return
 				}
-
-				var wn int
-				if outBuf.Len() != 0 {
-					outBuf.Write(inBuf[:rn])
-					wn, err = conn.Write(outBuf.Bytes())
-					outBuf.Next(wn)
-				} else {
-					wn, err = conn.Write(inBuf[:rn])
-					if wn != rn {
-						outBuf.Write(inBuf[wn:])
-					}
-				}
-				if err != nil {
+				wn, err = conn.Write(buf[:rn])
+				if err != nil || wn != rn {
 					return
 				}
 			}
-		}(id, conn)
+		}(conn)
 	}
 }

@@ -41,11 +41,23 @@ func main() {
 		}
 		return
 	}
+	events.Opened = func(c evio.Conn) (out []byte, opts evio.Options, action evio.Action) {
+		inboundBuf := make([]byte, 16*1024)
+		c.SetContext(inboundBuf)
+		return
+	}
 	events.Data = func(c evio.Conn, in []byte) (out []byte, action evio.Action) {
 		if trace {
 			log.Printf("%s", strings.TrimSpace(string(in)))
 		}
-		out = append([]byte{}, in...)
+		inboundBuf := c.Context().([]byte)
+		n := len(in)
+		if n > len(inboundBuf) {
+			inboundBuf = make([]byte, 2*n)
+			c.SetContext(inboundBuf)
+		}
+		cn := copy(inboundBuf, in)
+		out = inboundBuf[:cn]
 		return
 	}
 	scheme := "tcp"
