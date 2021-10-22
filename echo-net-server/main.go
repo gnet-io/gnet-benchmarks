@@ -30,7 +30,7 @@ func main() {
 			defer conn.Close()
 			var (
 				rn, wn int
-				buf    [0x4000]byte
+				buf    [0x4000]byte // 16 KB buffer
 			)
 			for {
 				rn, err = conn.Read(buf[:])
