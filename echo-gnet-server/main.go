@@ -47,5 +47,5 @@ func main() {
 	flag.BoolVar(&multicore, "multicore", false, "--multicore true")
 	flag.Parse()
 	echo := new(echoServer)
-	log.Fatal(gnet.Serve(echo, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore)))
+	log.Fatal(gnet.Serve(echo, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore), gnet.WithLockOSThread(true)))
 }
