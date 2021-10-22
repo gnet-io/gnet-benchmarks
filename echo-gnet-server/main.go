@@ -23,23 +23,9 @@ func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 	return
 }
 
-func (es *echoServer) OnOpened(c gnet.Conn) (out []byte, action gnet.Action) {
-	inboundBuf := make([]byte, 16*1024)
-	c.SetContext(inboundBuf)
-	return
-}
-
 func (es *echoServer) React(packet []byte, c gnet.Conn) (out []byte, action gnet.Action) {
 	// Echo synchronously.
-	inboundBuf := c.Context().([]byte)
-	n := len(packet)
-	if n > len(inboundBuf) {
-		inboundBuf = make([]byte, 2*n)
-		c.SetContext(inboundBuf)
-	}
-	cn := copy(inboundBuf, packet)
-	out = inboundBuf[:cn]
-	return
+	return packet, gnet.None
 
 	/*
 		// Echo asynchronously.
