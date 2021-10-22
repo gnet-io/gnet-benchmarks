@@ -13,12 +13,14 @@ import (
 	"gonum.org/v1/plot/vg"
 )
 
-var category string
-var kind string
-var connections, commands, pipeline, seconds int
-var rate float64
-var values []float64
-var names []string
+var (
+	category                                 string
+	kind                                     string
+	connections, commands, pipeline, seconds int
+	rate                                     float64
+	values                                   []float64
+	names                                    []string
+)
 
 func main() {
 	analyze()
@@ -29,7 +31,7 @@ func autoplot() {
 	if category == "" {
 		return
 	}
-	var title = category
+	title := category
 	path := strings.Replace("results/"+category+".png", " ", "_", -1)
 
 	plotit(
@@ -38,12 +40,11 @@ func autoplot() {
 		values,
 		names,
 	)
-
 }
 
 func analyze() {
 	lines := readlines("results/http_mac.txt", "results/echo_mac.txt", "results/http_linux.txt", "results/echo_linux.txt")
-	//lines := readlines("results/http.txt", "results/echo.txt")
+	// lines := readlines("results/http.txt", "results/echo.txt")
 	var err error
 	for _, line := range lines {
 		rlines := strings.Split(line, "\r")
@@ -100,7 +101,7 @@ func output() {
 	name := kind
 	names = append(names, name)
 	values = append(values, rate)
-	//csv += fmt.Sprintf("%s,%s,%d,%d,%d,%d,%f\n", category, kind, connections, commands, pipeline, seconds, rate)
+	// csv += fmt.Sprintf("%s,%s,%d,%d,%d,%d,%f\n", category, kind, connections, commands, pipeline, seconds, rate)
 }
 
 func readlines(paths ...string) (lines []string) {

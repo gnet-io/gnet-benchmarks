@@ -67,12 +67,12 @@ func main() {
 
 	events.Opened = func(c evio.Conn) (out []byte, opts evio.Options, action evio.Action) {
 		c.SetContext(&evio.InputStream{})
-		//log.Printf("opened: laddr: %v: raddr: %v", c.LocalAddr(), c.RemoteAddr())
+		// log.Printf("opened: laddr: %v: raddr: %v", c.LocalAddr(), c.RemoteAddr())
 		return
 	}
 
 	events.Closed = func(c evio.Conn, err error) (action evio.Action) {
-		//log.Printf("closed: %s: %s", c.LocalAddr().String(), c.RemoteAddr().String())
+		// log.Printf("closed: %s: %s", c.LocalAddr().String(), c.RemoteAddr().String())
 		return
 	}
 
@@ -161,7 +161,7 @@ func parsereq(data []byte, req *request) (leftover []byte, err error) {
 	var i, s int
 	var top string
 	var clen int
-	var q = -1
+	q := -1
 	// method, path, proto line
 	for ; i < len(sdata); i++ {
 		if sdata[i] == ' ' {

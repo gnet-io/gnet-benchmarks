@@ -31,10 +31,10 @@ func main() {
 		id++
 		go func(id int, conn net.Conn) {
 			defer func() {
-				//log.Printf("closed: %d", id)
+				// log.Printf("closed: %d", id)
 				_ = conn.Close()
 			}()
-			//log.Printf("opened: %d: %s", id, conn.RemoteAddr().String())
+			// log.Printf("opened: %d: %s", id, conn.RemoteAddr().String())
 			inBuf := make([]byte, 16*1024)
 			outBuf := bytes.NewBuffer(make([]byte, 0, 16*1024))
 			for {

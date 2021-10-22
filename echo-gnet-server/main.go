@@ -25,7 +25,7 @@ func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 
 func (es *echoServer) React(packet []byte, c gnet.Conn) (out []byte, action gnet.Action) {
 	// Echo synchronously.
-	out = append([]byte{}, packet ...)
+	out = append([]byte{}, packet...)
 	return
 
 	/*
