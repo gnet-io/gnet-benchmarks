@@ -87,5 +87,5 @@ func main() {
 	http := &httpServer{addr: fmt.Sprintf("tcp://127.0.0.1:%d", port), multicore: multicore, parser: hc}
 
 	// Start serving!
-	log.Fatal(gnet.Run(http, http.addr, gnet.WithMulticore(multicore)))
+	log.Println("server exits:", gnet.Run(http, http.addr, gnet.WithMulticore(multicore)))
 }
