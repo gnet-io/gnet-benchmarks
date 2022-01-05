@@ -15,10 +15,11 @@ function cleanup() {
 trap cleanup EXIT
 
 mkdir -p bin
-$(pkill -9 net-http-server || printf "")
-$(pkill -9 fasthttp-server || printf "")
-$(pkill -9 evio-http-server || printf "")
-$(pkill -9 gnet-http-server || printf "")
+
+$(pkill -9 http-net-server || printf "")
+$(pkill -9 http-fasthttp-server || printf "")
+$(pkill -9 http-evio-server || printf "")
+$(pkill -9 http-gnet-server || printf "")
 
 function gobench() {
   echo "--- $1 ---"

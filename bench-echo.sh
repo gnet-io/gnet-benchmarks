@@ -47,12 +47,10 @@ trap cleanup EXIT
 
 mkdir -p bin
 
-eval "$(pkill -9 net-echo || printf "")"
-eval "$(pkill -9 evio-echo || printf "")"
-eval "$(pkill -9 eviop-echo || printf "")"
-eval "$(pkill -9 gev-echo || printf "")"
-eval "$(pkill -9 netpoll-echo || printf "")"
-eval "$(pkill -9 gnet-echo || printf "")"
+eval "$(pkill -9 echo-net || printf "")"
+eval "$(pkill -9 echo-evio || printf "")"
+eval "$(pkill -9 echo-netpoll || printf "")"
+eval "$(pkill -9 echo-gnet || printf "")"
 
 conn_num=$1
 test_duration=$2
