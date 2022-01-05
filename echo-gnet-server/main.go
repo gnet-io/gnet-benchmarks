@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/panjf2000/gnet/v2"
+	"github.com/panjf2000/gnet/v2/pkg/logging"
 )
 
 type echoServer struct {
@@ -37,5 +38,5 @@ func main() {
 	flag.BoolVar(&multicore, "multicore", false, "--multicore true")
 	flag.Parse()
 	echo := &echoServer{addr: fmt.Sprintf("tcp://:%d", port), multicore: multicore}
-	log.Fatal(gnet.Run(echo, echo.addr, gnet.WithMulticore(multicore)))
+	log.Fatal(gnet.Run(echo, echo.addr, gnet.WithMulticore(multicore), gnet.WithLogLevel(logging.ErrorLevel)))
 }
