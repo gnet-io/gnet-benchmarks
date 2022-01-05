@@ -1,8 +1,3 @@
-// Copyright 2019 Andy Pan. All rights reserved.
-// Copyright 2017 Joshua J Baker. All rights reserved.
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file.
-
 package main
 
 import (
@@ -10,32 +5,27 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/panjf2000/gnet"
+	"github.com/panjf2000/gnet/v2"
 )
 
 type echoServer struct {
-	*gnet.EventServer
+	*gnet.BuiltinEventEngine
+
+	eng       gnet.Engine
+	addr      string
+	multicore bool
 }
 
-func (es *echoServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
-	log.Printf("Echo server is listening on %s (multi-cores: %t, event-loops: %d)\n",
-		srv.Addr.String(), srv.Multicore, srv.NumEventLoop)
-	return
+func (es *echoServer) OnBoot(eng gnet.Engine) gnet.Action {
+	es.eng = eng
+	log.Printf("echo server with multi-core=%t is listening on %s\n", es.multicore, es.addr)
+	return gnet.None
 }
 
-func (es *echoServer) React(packet []byte, c gnet.Conn) (out []byte, action gnet.Action) {
-	// Echo synchronously.
-	return packet, gnet.None
-
-	/*
-		// Echo asynchronously.
-		data := append([]byte{}, packet...)
-		go func() {
-			time.Sleep(time.Second)
-			c.AsyncWrite(data)
-		}()
-		return
-	*/
+func (es *echoServer) OnTraffic(c gnet.Conn) gnet.Action {
+	buf, _ := c.Next(-1)
+	c.Write(buf)
+	return gnet.None
 }
 
 func main() {
@@ -46,6 +36,6 @@ func main() {
 	flag.IntVar(&port, "port", 9000, "--port 9000")
 	flag.BoolVar(&multicore, "multicore", false, "--multicore true")
 	flag.Parse()
-	echo := new(echoServer)
-	log.Fatal(gnet.Serve(echo, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore), gnet.WithLockOSThread(true)))
+	echo := &echoServer{addr: fmt.Sprintf("tcp://:%d", port), multicore: multicore}
+	log.Fatal(gnet.Run(echo, echo.addr, gnet.WithMulticore(multicore)))
 }

@@ -8,52 +8,64 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/panjf2000/gnet"
+	"github.com/panjf2000/gnet/v2"
+)
+
+var (
+	errMsg      = "Internal Server Error"
+	errMsgBytes = []byte(errMsg)
 )
 
 type httpServer struct {
-	*gnet.EventServer
+	*gnet.BuiltinEventEngine
+
+	parser    httpParser
+	addr      string
+	multicore bool
+	eng       gnet.Engine
 }
 
-type httpCodec struct {
+type httpParser struct {
 	delimiter []byte
+
+	rsp []byte
 }
 
-func (hc *httpCodec) Encode(c gnet.Conn, buf []byte) (out []byte, err error) {
-	return buf, nil
-}
-
-func (hc *httpCodec) Decode(c gnet.Conn) (out []byte, err error) {
-	buf := c.Read()
-	if buf == nil {
-		return
-	}
-	c.ResetBuffer()
+func (p *httpParser) Parse(c gnet.Conn) error {
+	buf, _ := c.Next(-1)
 
 	// process the pipeline
 	var i int
+	p.rsp = p.rsp[:0]
 pipeline:
-	if i = bytes.Index(buf, hc.delimiter); i != -1 {
-		out = append(out, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
-		out = time.Now().AppendFormat(out, "Mon, 02 Jan 2006 15:04:05 GMT")
-		out = append(out, "\r\nContent-Length: 13\r\n\r\nHello, World!"...)
+	if i = bytes.Index(buf, p.delimiter); i != -1 {
+		p.rsp = append(p.rsp, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
+		p.rsp = time.Now().AppendFormat(p.rsp, "Mon, 02 Jan 2006 15:04:05 GMT")
+		p.rsp = append(p.rsp, "\r\nContent-Length: 13\r\n\r\nHello, World!"...)
 		buf = buf[i+4:]
 		goto pipeline
 	}
+
 	// request not ready, yet
-	return
+	return nil
 }
 
-func (hs *httpServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
-	log.Printf("HTTP server is listening on %s (multi-cores: %t, event-loops: %d)\n",
-		srv.Addr.String(), srv.Multicore, srv.NumEventLoop)
-	return
+func (hs *httpServer) OnBoot(eng gnet.Engine) gnet.Action {
+	hs.eng = eng
+	log.Printf("echo server with multi-core=%t is listening on %s\n", hs.multicore, hs.addr)
+	return gnet.None
 }
 
-func (hs *httpServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
+func (hs *httpServer) OnTraffic(c gnet.Conn) gnet.Action {
+	if hs.parser.Parse(c) != nil {
+		// bad thing happened
+		c.Write(errMsgBytes)
+		return gnet.Close
+	}
+
 	// handle the request
-	out = frame
-	return
+	c.Write(hs.parser.rsp)
+	return gnet.None
 }
 
 func init() {
@@ -69,9 +81,9 @@ func main() {
 	flag.BoolVar(&multicore, "multicore", true, "multicore")
 	flag.Parse()
 
-	http := new(httpServer)
-	hc := &httpCodec{delimiter: []byte("\r\n\r\n")}
+	hc := httpParser{delimiter: []byte("\r\n\r\n")}
+	http := &httpServer{addr: fmt.Sprintf("tcp://127.0.0.1:%d", port), multicore: multicore, parser: hc}
 
 	// Start serving!
-	log.Fatal(gnet.Serve(http, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore), gnet.WithCodec(hc)))
+	log.Fatal(gnet.Run(http, http.addr, gnet.WithMulticore(multicore)))
 }
