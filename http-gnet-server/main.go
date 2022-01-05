@@ -36,7 +36,6 @@ func (p *httpParser) Parse(c gnet.Conn) error {
 
 	// process the pipeline
 	var i int
-	p.rsp = p.rsp[:0]
 pipeline:
 	if i = bytes.Index(buf, p.delimiter); i != -1 {
 		p.rsp = append(p.rsp, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
@@ -64,7 +63,10 @@ func (hs *httpServer) OnTraffic(c gnet.Conn) gnet.Action {
 	}
 
 	// handle the request
-	c.Write(hs.parser.rsp)
+	if len(hs.parser.rsp) > 0 {
+		c.Write(hs.parser.rsp)
+		hs.parser.rsp = hs.parser.rsp[:0]
+	}
 	return gnet.None
 }
 
