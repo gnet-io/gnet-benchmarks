@@ -49,7 +49,7 @@ func main() {
 	if aaaa {
 		res = strings.Repeat("a", 1024)
 	} else {
-		res = "Hello World!\r\n"
+		res = "Hello World!"
 	}
 
 	var events evio.Events

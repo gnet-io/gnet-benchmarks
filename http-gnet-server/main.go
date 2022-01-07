@@ -40,7 +40,7 @@ pipeline:
 	if i = bytes.Index(buf, p.delimiter); i != -1 {
 		p.rsp = append(p.rsp, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
 		p.rsp = time.Now().AppendFormat(p.rsp, "Mon, 02 Jan 2006 15:04:05 GMT")
-		p.rsp = append(p.rsp, "\r\nContent-Length: 13\r\n\r\nHello, World!"...)
+		p.rsp = append(p.rsp, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
 		buf = buf[i+4:]
 		goto pipeline
 	}
