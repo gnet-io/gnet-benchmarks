@@ -22,19 +22,17 @@ type httpServer struct {
 	addr      string
 	multicore bool
 	eng       gnet.Engine
-	rsp       []byte
 }
 
-func (hs *httpServer) appendResponse() {
-	hs.rsp = append(hs.rsp, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
-	hs.rsp = time.Now().AppendFormat(hs.rsp, "Mon, 02 Jan 2006 15:04:05 GMT")
-	hs.rsp = append(hs.rsp, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
+type httpCodec struct {
+	parser *wildcat.HTTPParser
+	buf    []byte
 }
 
-func (hs *httpServer) OnOpen(c gnet.Conn) ([]byte, gnet.Action) {
-	parser := wildcat.NewHTTPParser()
-	c.SetContext(parser)
-	return nil, gnet.None
+func (hc *httpCodec) appendResponse() {
+	hc.buf = append(hc.buf, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
+	hc.buf = time.Now().AppendFormat(hc.buf, "Mon, 02 Jan 2006 15:04:05 GMT")
+	hc.buf = append(hc.buf, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
 }
 
 func (hs *httpServer) OnBoot(eng gnet.Engine) gnet.Action {
@@ -43,19 +41,23 @@ func (hs *httpServer) OnBoot(eng gnet.Engine) gnet.Action {
 	return gnet.None
 }
 
+func (hs *httpServer) OnOpen(c gnet.Conn) ([]byte, gnet.Action) {
+	c.SetContext(&httpCodec{parser: wildcat.NewHTTPParser()})
+	return nil, gnet.None
+}
+
 func (hs *httpServer) OnTraffic(c gnet.Conn) gnet.Action {
-	parser := c.Context().(*wildcat.HTTPParser)
+	hc := c.Context().(*httpCodec)
 	buf, _ := c.Next(-1)
-	//log.Printf("%d, get req:\n%s\n", len(buf), buf)
 
 pipeline:
-	headerOffset, err := parser.Parse(buf)
+	headerOffset, err := hc.parser.Parse(buf)
 	if err != nil {
 		c.Write(errMsgBytes)
 		return gnet.Close
 	}
-	hs.appendResponse()
-	bodyLen := int(parser.ContentLength())
+	hc.appendResponse()
+	bodyLen := int(hc.parser.ContentLength())
 	if bodyLen == -1 {
 		bodyLen = 0
 	}
@@ -64,9 +66,8 @@ pipeline:
 		goto pipeline
 	}
 
-	c.Write(hs.rsp)
-	hs.rsp = hs.rsp[:0]
-
+	c.Write(hc.buf)
+	hc.buf = hc.buf[:0]
 	return gnet.None
 }
 
