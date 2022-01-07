@@ -1,13 +1,13 @@
 package main
 
 import (
-	"bytes"
 	"flag"
 	"fmt"
 	"log"
 	"runtime"
 	"time"
 
+	"github.com/evanphx/wildcat"
 	"github.com/panjf2000/gnet"
 )
 
@@ -16,32 +16,14 @@ type httpServer struct {
 }
 
 type httpCodec struct {
-	delimiter []byte
+	parser *wildcat.HTTPParser
+	buf    []byte
 }
 
-func (hc *httpCodec) Encode(c gnet.Conn, buf []byte) (out []byte, err error) {
-	return buf, nil
-}
-
-func (hc *httpCodec) Decode(c gnet.Conn) (out []byte, err error) {
-	buf := c.Read()
-	if buf == nil {
-		return
-	}
-	c.ResetBuffer()
-
-	// process the pipeline
-	var i int
-pipeline:
-	if i = bytes.Index(buf, hc.delimiter); i != -1 {
-		out = append(out, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
-		out = time.Now().AppendFormat(out, "Mon, 02 Jan 2006 15:04:05 GMT")
-		out = append(out, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
-		buf = buf[i+4:]
-		goto pipeline
-	}
-	// request not ready, yet
-	return
+func (hc *httpCodec) appendResponse() {
+	hc.buf = append(hc.buf, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
+	hc.buf = time.Now().AppendFormat(hc.buf, "Mon, 02 Jan 2006 15:04:05 GMT")
+	hc.buf = append(hc.buf, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
 }
 
 func (hs *httpServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
@@ -50,9 +32,32 @@ func (hs *httpServer) OnInitComplete(srv gnet.Server) (action gnet.Action) {
 	return
 }
 
-func (hs *httpServer) React(frame []byte, c gnet.Conn) (out []byte, action gnet.Action) {
+func (hs httpServer) OnOpened(c gnet.Conn) ([]byte, gnet.Action) {
+	c.SetContext(&httpCodec{parser: wildcat.NewHTTPParser()})
+	return nil, gnet.None
+}
+
+func (hs *httpServer) React(data []byte, c gnet.Conn) (out []byte, action gnet.Action) {
+	hc := c.Context().(*httpCodec)
+
+pipeline:
+	headerOffset, err := hc.parser.Parse(data)
+	if err != nil {
+		return []byte("500 Error"), gnet.Close
+	}
+	hc.appendResponse()
+	bodyLen := int(hc.parser.ContentLength())
+	if bodyLen == -1 {
+		bodyLen = 0
+	}
+	data = data[headerOffset+bodyLen:]
+	if len(data) > 0 {
+		goto pipeline
+	}
+
 	// handle the request
-	out = frame
+	out = hc.buf
+	hc.buf = hc.buf[:0]
 	return
 }
 
@@ -70,8 +75,7 @@ func main() {
 	flag.Parse()
 
 	http := new(httpServer)
-	hc := &httpCodec{delimiter: []byte("\r\n\r\n")}
 
 	// Start serving!
-	log.Fatal(gnet.Serve(http, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore), gnet.WithCodec(hc)))
+	log.Fatal(gnet.Serve(http, fmt.Sprintf("tcp://127.0.0.1:%d", port), gnet.WithMulticore(multicore)))
 }
