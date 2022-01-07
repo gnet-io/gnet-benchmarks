@@ -1,13 +1,13 @@
 package main
 
 import (
-	"bytes"
 	"flag"
 	"fmt"
 	"log"
 	"runtime"
 	"time"
 
+	"github.com/evanphx/wildcat"
 	"github.com/panjf2000/gnet/v2"
 )
 
@@ -19,34 +19,22 @@ var (
 type httpServer struct {
 	*gnet.BuiltinEventEngine
 
-	parser    httpParser
 	addr      string
 	multicore bool
 	eng       gnet.Engine
+	rsp       []byte
 }
 
-type httpParser struct {
-	delimiter []byte
-
-	rsp []byte
+func (hs *httpServer) appendResponse() {
+	hs.rsp = append(hs.rsp, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
+	hs.rsp = time.Now().AppendFormat(hs.rsp, "Mon, 02 Jan 2006 15:04:05 GMT")
+	hs.rsp = append(hs.rsp, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
 }
 
-func (p *httpParser) Parse(c gnet.Conn) error {
-	buf, _ := c.Next(-1)
-
-	// process the pipeline
-	var i int
-pipeline:
-	if i = bytes.Index(buf, p.delimiter); i != -1 {
-		p.rsp = append(p.rsp, "HTTP/1.1 200 OK\r\nServer: gnet\r\nContent-Type: text/plain\r\nDate: "...)
-		p.rsp = time.Now().AppendFormat(p.rsp, "Mon, 02 Jan 2006 15:04:05 GMT")
-		p.rsp = append(p.rsp, "\r\nContent-Length: 12\r\n\r\nHello World!"...)
-		buf = buf[i+4:]
-		goto pipeline
-	}
-
-	// request not ready, yet
-	return nil
+func (hs *httpServer) OnOpen(c gnet.Conn) ([]byte, gnet.Action) {
+	parser := wildcat.NewHTTPParser()
+	c.SetContext(parser)
+	return nil, gnet.None
 }
 
 func (hs *httpServer) OnBoot(eng gnet.Engine) gnet.Action {
@@ -56,17 +44,29 @@ func (hs *httpServer) OnBoot(eng gnet.Engine) gnet.Action {
 }
 
 func (hs *httpServer) OnTraffic(c gnet.Conn) gnet.Action {
-	if hs.parser.Parse(c) != nil {
-		// bad thing happened
+	parser := c.Context().(*wildcat.HTTPParser)
+	buf, _ := c.Next(-1)
+	//log.Printf("%d, get req:\n%s\n", len(buf), buf)
+
+pipeline:
+	headerOffset, err := parser.Parse(buf)
+	if err != nil {
 		c.Write(errMsgBytes)
 		return gnet.Close
 	}
-
-	// handle the request
-	if len(hs.parser.rsp) > 0 {
-		c.Write(hs.parser.rsp)
-		hs.parser.rsp = hs.parser.rsp[:0]
+	hs.appendResponse()
+	bodyLen := int(parser.ContentLength())
+	if bodyLen == -1 {
+		bodyLen = 0
 	}
+	buf = buf[headerOffset+bodyLen:]
+	if len(buf) > 0 {
+		goto pipeline
+	}
+
+	c.Write(hs.rsp)
+	hs.rsp = hs.rsp[:0]
+
 	return gnet.None
 }
 
@@ -79,13 +79,12 @@ func main() {
 	var multicore bool
 
 	// Example command: go run main.go --port 8080 --multicore=true
-	flag.IntVar(&port, "port", 8080, "server port")
+	flag.IntVar(&port, "port", 9080, "server port")
 	flag.BoolVar(&multicore, "multicore", true, "multicore")
 	flag.Parse()
 
-	hc := httpParser{delimiter: []byte("\r\n\r\n")}
-	http := &httpServer{addr: fmt.Sprintf("tcp://127.0.0.1:%d", port), multicore: multicore, parser: hc}
+	hs := &httpServer{addr: fmt.Sprintf("tcp://127.0.0.1:%d", port), multicore: multicore}
 
 	// Start serving!
-	log.Println("server exits:", gnet.Run(http, http.addr, gnet.WithMulticore(multicore)))
+	log.Println("server exits:", gnet.Run(hs, hs.addr, gnet.WithMulticore(multicore)))
 }
