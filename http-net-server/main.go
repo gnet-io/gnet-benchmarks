@@ -23,7 +23,7 @@ func main() {
 	if aaaa {
 		res = strings.Repeat("a", 1024)
 	} else {
-		res = "Hello World!\r\n"
+		res = "Hello World!"
 	}
 	log.Printf("http server started on port %d", port)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
