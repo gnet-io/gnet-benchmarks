@@ -36,8 +36,9 @@ function gobench() {
   fi
 
   sleep 1
-  # bombardier -c 256 -d 15s -l http://127.0.0.1:$4
-  # wrk -c256 -d15s --latency http://127.0.0.1:$4
+#   bombardier -c 256 -d 15s -l http://127.0.0.1:$4
+#   wrk -t4 -c256 -d15s --latency http://127.0.0.1:$4
+#   hey -c 256 -H "Connection: keep-alive" -z 10s -m GET  http://127.0.0.1:$4/plaintext
   wrk -H 'Host: 127.0.0.1' -H 'Accept: text/plain,text/html;q=0.9,application/xhtml+xml;q=0.9,application/xml;q=0.8,*/*;q=0.7' -H 'Connection: keep-alive' --latency -d 15 -c 256 --timeout 8 -t 4 http://127.0.0.1:$4/plaintext -s pipeline.lua -- 16
   echo "--- DONE ---"
   echo ""
