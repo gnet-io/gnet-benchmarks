@@ -9,7 +9,7 @@ require (
 	github.com/evanphx/wildcat v0.0.0-20141114174135-e7012f664567
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/panjf2000/gnet v1.6.4
-	github.com/panjf2000/gnet/v2 v2.0.0-20220131023121-71801dba3455
+	github.com/panjf2000/gnet/v2 v2.0.0-20220131090053-2ae2d5b4d301
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/tidwall/evio v1.0.8
 	github.com/valyala/fasthttp v1.31.0

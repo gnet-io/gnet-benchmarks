@@ -28,8 +28,8 @@ github.com/panjf2000/ants/v2 v2.4.7 h1:MZnw2JRyTJxFwtaMtUJcwE618wKD04POWk2gwwP4E
 github.com/panjf2000/ants/v2 v2.4.7/go.mod h1:f6F0NZVFsGCp5A7QW/Zj/m92atWwOkY0OIhFxRNFr4A=
 github.com/panjf2000/gnet v1.6.4 h1:GJyx3z7UvjZtPkNN4rpsW/n6tgp1TBZUHcH2xbzYJ7U=
 github.com/panjf2000/gnet v1.6.4/go.mod h1:KcOU7QsCaCBjeD5kyshBIamG3d9kAQtlob4Y0v0E+sc=
-github.com/panjf2000/gnet/v2 v2.0.0-20220131023121-71801dba3455 h1:bTya3eGIU74vjPkKZmAl4NjN1Y2DMDMwBbsc6MvUb+Q=
-github.com/panjf2000/gnet/v2 v2.0.0-20220131023121-71801dba3455/go.mod h1:U7ALCJFDwUdRcejkPMmxKHLGFSccA/7oJQPQ36LBGEU=
+github.com/panjf2000/gnet/v2 v2.0.0-20220131090053-2ae2d5b4d301 h1:x5CgtESghirBlRnp5nfjBzUpXxN0eLNy2mUHUvIimwA=
+github.com/panjf2000/gnet/v2 v2.0.0-20220131090053-2ae2d5b4d301/go.mod h1:U7ALCJFDwUdRcejkPMmxKHLGFSccA/7oJQPQ36LBGEU=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
