@@ -1,12 +1,15 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
+	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/panjf2000/gnet/v2"
-	"github.com/panjf2000/gnet/v2/pkg/logging"
 )
 
 type echoServer struct {
@@ -37,6 +40,14 @@ func main() {
 	flag.IntVar(&port, "port", 9000, "--port 9000")
 	flag.BoolVar(&multicore, "multicore", false, "--multicore true")
 	flag.Parse()
+
 	echo := &echoServer{addr: fmt.Sprintf("tcp://:%d", port), multicore: multicore}
-	log.Fatal(gnet.Run(echo, echo.addr, gnet.WithMulticore(multicore), gnet.WithLogLevel(logging.ErrorLevel)))
+	go func ()  {
+		log.Println("gnet server exits:", gnet.Run(echo, echo.addr, gnet.WithMulticore(multicore), gnet.WithLockOSThread(true)))
+	}()
+
+	sigCh := make(chan os.Signal, 1)
+	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
+	<-sigCh
+	gnet.Stop(context.TODO(), echo.addr)
 }

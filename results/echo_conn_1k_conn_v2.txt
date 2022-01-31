@@ -1,0 +1,89 @@
+--- BENCH ECHO START ---
+
+--- ECHO PACKET ---
+dQLfaaNiffpLHWzeICDS064DewsIczIlaQaSD2GclHrAGPE1f94SVhS7QyKl6hYe4ye0T4j83O2QHtNec3mfOynakhudVwUXPnw26bpS4MovZjj6d7REjpQezfGfqy6nePIVq2QTVhhfbjDj6p35ko5My5ZK3znQUvVpfywuzzWnSYi6Lb3GoRgMXwotRHaslQJqiihrTrLTnfIWaT0LeXWUplkso9OuBbNlZn2ZPqRtB8GRu9jLfCk3IO8mmRlQ8ZkzXfQFlf4IkpDcfHKSOaGSsAHoWcD6agZ9sIjFupLxe521RagUUDzxvWlGEjlogCbQZeB8F8JWxRZJwbJB30NV8BytnmEL1ZVzkIueYfy5QJXvc14JamiDKVNEMqilZGiUI0ql5b2ufWid4neHmxQr2pP8Rm8VVR1eIXHx2faayQgyAbPeMiGbKw88ENbPmwdoZ0OR7MjfryE5tkdUm8nXT4hRL0vSZPMLCQs1z75Q8Ky0DqX5WGFwArXNzlNQyyL8QE6yi8NoITKAMlKjnjC3jijTeu3ZENlG2Gp3XwHFKpERCeM1RkhCaNZVcHd1EF5Qf8RZIY0B2esbrIowTdpkROvq1uAHnzmguZdMLtYqAHyZlCSxj5PP61pELRmedaNrFNfCk2BWDQ5Fu6ctgy2aofLAqytZAehCjEPcZMJNWD0ItgYewXiPJ8bPQbwfRrXlp5XJ8zG3kaIIfnWmo7WcFEvVFFrGXp62lW7iilmei4nLJxYkHphxh4gUlagXDsvnnEgdC4OTBJdxUo9ghH1IhOWq8UvpqrJPOv1TLUQRVigs31GZmFgRBOQgxWPveB2fF43dQfOGWyiilia8JxBt0HggefWuwh0EpCCe0vigxj5OseQTMOcW3We13AUHZ2pFS5kSOXPELxSmRlnXSx4DbGWC58KkeHVbp6PKTy32hkS1QFdsg7knHRkWZ61WVcsqOUEiSoqYuCvGWExH9Mb4g8WMyn5KS2yJl01JIUYIWdRFITu2c230fikHJAgI
+
+--- GO-NET ---
+
+Warming up for 1 seconds...
+2022/01/31 15:11:33 echo server started on port 7000
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Destination: [127.0.0.1]:7000
+Interface lo address [127.0.0.1]:0
+Using interface lo to connect to [127.0.0.1]:7000
+Ramped up to 1000 connections.
+Total data sent:     63517.6 MiB (66602983864 bytes)
+Total data received: 64435.8 MiB (67565831328 bytes)
+Bandwidth per channel: 70.843⇅ Mbps (8855.4 kBps)
+Aggregate bandwidth: 36032.567↓, 35519.084↑ Mbps
+Packet rate estimate: 3121291.0↓, 3066691.3↑ (10↓, 19↑ TCP MSS/op)
+Test duration: 15.0011 s.
+
+--- BENCHMARK DONE ---
+
+--- EVIO ---
+
+Warming up for 1 seconds...
+2022/01/31 15:11:50 echo server started on port 7001 (event-loops: 8)
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Destination: [127.0.0.1]:7001
+Interface lo address [127.0.0.1]:0
+Using interface lo to connect to [127.0.0.1]:7001
+Ramped up to 1000 connections.
+Total data sent:     54735.1 MiB (57393872896 bytes)
+Total data received: 54691.4 MiB (57348056439 bytes)
+Bandwidth per channel: 61.193⇅ Mbps (7649.1 kBps)
+Aggregate bandwidth: 30584.251↓, 30608.686↑ Mbps
+Packet rate estimate: 2638061.0↓, 2627164.6↑ (11↓, 45↑ TCP MSS/op)
+Test duration: 15.0007 s.
+
+--- BENCHMARK DONE ---
+
+--- GNET ---
+
+Warming up for 1 seconds...
+2022/01/31 15:12:08 echo server with multi-core=true is listening on tcp://:7002
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Destination: [127.0.0.1]:7002
+Interface lo address [127.0.0.1]:0
+Using interface lo to connect to [127.0.0.1]:7002
+Ramped up to 1000 connections.
+Total data sent:     94073.1 MiB (98642755584 bytes)
+Total data received: 94026.4 MiB (98593849208 bytes)
+Bandwidth per channel: 105.189⇅ Mbps (13148.6 kBps)
+Aggregate bandwidth: 52581.298↓, 52607.380↑ Mbps
+Packet rate estimate: 4854865.4↓, 4515327.6↑ (11↓, 45↑ TCP MSS/op)
+Test duration: 15.0006 s.
+
+--- BENCHMARK DONE ---
+
+--- NETPOLL ---
+
+Warming up for 1 seconds...
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Destination: [127.0.0.1]:7004
+Interface lo address [127.0.0.1]:0
+Using interface lo to connect to [127.0.0.1]:7004
+Ramped up to 1000 connections.
+Total data sent:     45850.7 MiB (48077930496 bytes)
+Total data received: 45762.0 MiB (47984943104 bytes)
+Bandwidth per channel: 51.233⇅ Mbps (6404.1 kBps)
+Aggregate bandwidth: 25591.626↓, 25641.219↑ Mbps
+Packet rate estimate: 2353671.9↓, 2200803.5↑ (8↓, 45↑ TCP MSS/op)
+Test duration: 15.0002 s.
+
+--- BENCHMARK DONE ---
+
+--- BENCH ECHO DONE ---
