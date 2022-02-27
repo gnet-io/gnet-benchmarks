@@ -88,3 +88,97 @@ Test duration: 15.0002 s.
 --- BENCHMARK DONE ---
 
 --- BENCH ECHO DONE ---
+
+======================== Alternatives ==========================
+
+--- BENCH ECHO START ---
+
+--- ECHO PACKET ---
+mBG3q3I2VxwBFPvieaMMAx4kfsiZxiYoNl5taRMfX9DPTvnq0fruAcAcbKJ5TNBxFsybj9ojCoJ0ZP46gfE3WJAI1tomXxQZrUiHgCw89lZdPgGOEMkXKjaXnXFyiI0qSNxN1BA63Vjt8KcdDr11g5H7ozL21Av85VpwQENgGN2c6EAgJjvwIw5g8xOsjbsLVG4UEDbXe4yPLSSVLwckG82a027cCFhGcyC9JvpdbceeRf0BBNlAtaBQdw3RtpMeUK5TA8G237l3LVJJ53nCUYCPMzv9QD4GvwzYADuEOYawTNbzwWeKQx2S5wwh7Exuw02xwhSoKpmcYfP0ki24DztnVrlK7DXv3IPzKPT61xFTRcMiHqOFmDRfrIWPpXdT1IdgXBw7i8OHi90DBIK5yWvaJForhlL70MgeU6pYS9Soc1nrv6jIzNvVwoMGuLzdmEsv2PJMGAQmF4U8thL6Yr18M8E5CD9QBT41mFpZS2feWDm2arFQk7x01IrcAXOoBdlDUZN2KTpTHfVZt3ZaZ3GxpZWlU7BZzF22yjYmcY4sDkcOopLtJblAYD5uiJgfaTpuJQIYwNSMdgmpVaW36WU5Nl5tkKbfH8VlyV99rpqxzquecb5e5f35BK36LlTrhx0CGumapWpL0LjQVwQXe2YID2e0JE2SburHFFZDxldDOuCBkO5UGxgJXZIVtj1UgN2eHqdhmf9xN7lYa3OEZ4xkfNO6U4mVBzmTZ8vIgMoYT0EAEOziSU4rnIzdaCRLqIuieQqqP0ZPOw1h61lajFaYLxxFaMo80qzAs6alAY44QT3uaFFvbZFl2skbIwIm5MpTqO7N8UnnjKLweqM1uGvboJltLat8kqPA9aMluu36cJqAhmiu9Eu8r20yBkwdsvUBwlm7ODXkSTzSF04bkyiUXrojNPtEM8RxVImx6dRCXfTNswCMoiEUSLIa0ltq3qMIPusdtoiSpyEb9YKnowpP3dkSNZzJ7LhiQNhCHUWw92xqJO24JlEhQvOQTUDw
+
+--- GO-NET ---
+
+Warming up for 1 seconds...
+2022/02/23 17:23:07 echo server started on port 7000
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Fortio dev running at 0 queries per second, 8->8 procs, for 15s: tcp://127.0.0.1:7000
+Aggregated Function Time : count 5839696 avg 0.002567026 +/- 0.001811 min 1.1872e-05 max 0.051163418 sum 14990.6516
+# target 50% 0.00224451
+# target 75% 0.00303242
+# target 90% 0.00417943
+# target 99% 0.0102259
+# target 99.9% 0.0190456
+Sockets used: 1000 (for perfect no error run, would be 1000)
+Total Bytes sent: 5980872704, received: 5980872704
+tcp OK : 5839696 (100.0 %)
+All done 5839696 calls (plus 1000 warmup) 2.567 ms avg, 389277.7 qps
+
+--- BENCHMARK DONE ---
+
+--- EVIO ---
+
+Warming up for 1 seconds...
+2022/02/23 17:23:24 echo server started on port 7001 (event-loops: 8)
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Fortio dev running at 0 queries per second, 8->8 procs, for 15s: tcp://127.0.0.1:7001
+Aggregated Function Time : count 5913378 avg 0.002536087 +/- 0.003536 min 1.2212e-05 max 0.060082435 sum 14996.8413
+# target 50% 0.00158696
+# target 75% 0.00270215
+# target 90% 0.00558735
+# target 99% 0.0184107
+# target 99.9% 0.0332798
+Sockets used: 1000 (for perfect no error run, would be 1000)
+Total Bytes sent: 6056323072, received: 6056323072
+tcp OK : 5913378 (100.0 %)
+All done 5913378 calls (plus 1000 warmup) 2.536 ms avg, 394129.6 qps
+
+--- BENCHMARK DONE ---
+
+--- GNET ---
+
+Warming up for 1 seconds...
+2022/02/23 17:23:40 echo server with multi-core=true is listening on tcp://:7002
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Fortio dev running at 0 queries per second, 8->8 procs, for 15s: tcp://127.0.0.1:7002
+Aggregated Function Time : count 6692627 avg 0.0022402391 +/- 0.003144 min 1.051e-05 max 0.066801937 sum 14993.0844
+# target 50% 0.00137102
+# target 75% 0.00248501
+# target 90% 0.0049681
+# target 99% 0.0158065
+# target 99.9% 0.0296589
+Sockets used: 1000 (for perfect no error run, would be 1000)
+Total Bytes sent: 6854274048, received: 6854274048
+tcp OK : 6692627 (100.0 %)
+All done 6692627 calls (plus 1000 warmup) 2.240 ms avg, 446128.2 qps
+
+--- BENCHMARK DONE ---
+
+--- NETPOLL ---
+
+Warming up for 1 seconds...
+
+--- BENCHMARK START ---
+*** 1000 connections, 15 seconds, packet size: 1024 bytes
+
+Fortio dev running at 0 queries per second, 8->8 procs, for 15s: tcp://127.0.0.1:7003
+Aggregated Function Time : count 5385810 avg 0.0027837816 +/- 0.002989 min 1.4668e-05 max 0.071894537 sum 14992.9185
+# target 50% 0.00197017
+# target 75% 0.0033441
+# target 90% 0.00580928
+# target 99% 0.015126
+# target 99.9% 0.0269923
+Sockets used: 1000 (for perfect no error run, would be 1000)
+Total Bytes sent: 5516093440, received: 5516093440
+tcp OK : 5385810 (100.0 %)
+All done 5385810 calls (plus 1000 warmup) 2.784 ms avg, 359019.5 qps
+
+--- BENCHMARK DONE ---
