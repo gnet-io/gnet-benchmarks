@@ -13,7 +13,7 @@ import (
 )
 
 type echoServer struct {
-	*gnet.BuiltinEventEngine
+	gnet.BuiltinEventEngine
 
 	eng       gnet.Engine
 	addr      string
